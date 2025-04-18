@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import { TelescopeIcon as Binoculars, Utensils, Compass, Camera } from "lucide-react"
+import { EdgeHoverEffect } from "./edge-hover-effect"
 
 const experiences = [
   {
@@ -54,7 +55,9 @@ export function Experience() {
 
   return (
     <section id="experience" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20"></div>
+      <EdgeHoverEffect className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-20"></div>
+      </EdgeHoverEffect>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

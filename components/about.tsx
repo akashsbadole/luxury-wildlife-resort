@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { EdgeHoverEffect } from "./edge-hover-effect"
 
 export function About() {
   return (
@@ -43,7 +44,7 @@ export function About() {
               </div>
             </div>
 
-            <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-in">
+            <EdgeHoverEffect className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-in">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
               <Image
                 src="/placeholder.svg?height=500&width=600"
@@ -51,7 +52,7 @@ export function About() {
                 fill
                 className="object-cover parallax-img"
               />
-            </div>
+            </EdgeHoverEffect>
           </div>
         </div>
       </div>

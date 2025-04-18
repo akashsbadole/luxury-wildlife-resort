@@ -4,6 +4,7 @@ import { useRef } from "react"
 import { gsap } from "gsap"
 import { useGSAP } from "@gsap/react"
 import Image from "next/image"
+import { EdgeHoverEffect } from "./edge-hover-effect"
 
 const accommodations = [
   {
@@ -70,14 +71,14 @@ export function Accommodations() {
               key={index}
               className="accommodation-card bg-black/40 backdrop-blur-md rounded-2xl overflow-hidden transform transition-transform hover:scale-[1.02]"
             >
-              <div className="relative h-64 overflow-hidden">
+              <EdgeHoverEffect className="relative h-64 overflow-hidden">
                 <Image
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
                   fill
                   className="object-cover transition-transform hover:scale-110 duration-700"
                 />
-              </div>
+              </EdgeHoverEffect>
 
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-amber-100 mb-2">{item.title}</h3>

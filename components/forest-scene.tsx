@@ -6,9 +6,15 @@ import { Environment, Stars, Cloud, useScroll, PerspectiveCamera, Float } from "
 import { gsap } from "gsap"
 import * as THREE from "three"
 
+interface TreeProps {
+  position: [number, number, number]
+  scale?: number
+  color?: string
+}
+
 // Create a stylized tree
-function Tree({ position, scale = 1, color = "#2d4c1e" }) {
-  const treeRef = useRef()
+function Tree({ position, scale = 1, color = "#2d4c1e" }: TreeProps) {
+  const treeRef = useRef<THREE.Group>(null)
 
   // Create a stylized low-poly tree
   const geometry = useMemo(() => {
@@ -67,95 +73,58 @@ function Crystal({ position }) {
 }
 
 export function ForestScene() {
+  const sceneRef = useRef<THREE.Group>(null)
   const { camera } = useThree()
   const scroll = useScroll()
-  const cameraRef = useRef()
-
-  // Create a circular arrangement of trees
-  const trees = useMemo(() => {
-    const items = []
-    const radius = 15
-    const count = 20
-
-    for (let i = 0; i < count; i++) {
-      const angle = (i / count) * Math.PI * 2
-      const x = Math.sin(angle) * radius
-      const z = Math.cos(angle) * radius
-      const scale = 0.5 + Math.random() * 1
-      const color = ["#2d4c1e", "#1e4c2d", "#3a5a2a"][Math.floor(Math.random() * 3)]
-
-      items.push({ position: [x, 0, z], scale, color })
-    }
-
-    return items
-  }, [])
-
-  useFrame((state, delta) => {
-    // Update camera based on scroll
-    const scrollOffset = scroll.offset
-
-    // Move camera up and around as user scrolls
-    if (cameraRef.current) {
-      gsap.to(cameraRef.current.position, {
-        y: 5 + scrollOffset * 10,
-        z: 15 - scrollOffset * 10,
-        duration: 0.5,
-      })
-
-      gsap.to(cameraRef.current.rotation, {
-        x: -0.2 - scrollOffset * 0.2,
-        duration: 0.5,
-      })
-    }
-  })
+  const scrollOffset = useRef(0)
 
   useEffect(() => {
-    if (camera && cameraRef.current) {
-      camera.position.copy(cameraRef.current.position)
-      camera.rotation.copy(cameraRef.current.rotation)
+    if (!sceneRef.current) return
+
+    // Initial camera position
+    gsap.to(camera.position, {
+      x: 0,
+      y: 5,
+      z: 15,
+      duration: 1,
+      ease: "power2.out",
+    })
+
+    // Parallax effect on scroll
+    const handleScroll = () => {
+      if (!sceneRef.current) return
+      scrollOffset.current = scroll?.offset || 0
+      sceneRef.current.position.y = scrollOffset.current * -2
     }
-  }, [camera])
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [camera, scroll])
+
+  useFrame(() => {
+    if (!sceneRef.current) return
+    scrollOffset.current = scroll?.offset || 0
+    sceneRef.current.position.y = scrollOffset.current * -2
+  })
 
   return (
-    <>
-      <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 5, 15]} fov={75} />
-
-      <color attach="background" args={["#030c0a"]} />
-
-      <fog attach="fog" args={["#030c0a", 5, 30]} />
-
-      <ambientLight intensity={0.2} />
-
-      <directionalLight position={[5, 10, 5]} intensity={0.8} castShadow shadow-mapSize={1024} />
-
-      <pointLight position={[0, 8, 0]} intensity={1} color="#a1e4ff" />
-
-      {/* Ground */}
-      <mesh rotation-x={-Math.PI / 2} receiveShadow position={[0, -0.5, 0]}>
-        <planeGeometry args={[100, 100]} />
-        <meshStandardMaterial color="#0a1f0a" roughness={1} />
-      </mesh>
-
-      {/* Trees */}
-      {trees.map((tree, i) => (
-        <Tree key={i} position={tree.position} scale={tree.scale} color={tree.color} />
-      ))}
-
-      {/* Crystal centerpiece */}
-      <Crystal position={[0, 3, 0]} />
-
-      {/* Clouds */}
-      <Float speed={0.5} rotationIntensity={0.2} floatIntensity={0.5}>
-        <Cloud position={[-10, 15, -10]} args={[3, 2]} opacity={0.3} speed={0.4} />
-        <Cloud position={[10, 12, -15]} args={[3, 2]} opacity={0.3} speed={0.4} />
-        <Cloud position={[0, 10, 0]} args={[3, 2]} opacity={0.3} speed={0.4} />
-      </Float>
-
-      {/* Stars */}
-      <Stars radius={50} depth={50} count={1000} factor={4} fade speed={1} />
-
-      {/* Environment lighting */}
+    <group ref={sceneRef}>
       <Environment preset="night" />
-    </>
+      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+      
+      {/* Trees */}
+      <Tree position={[-5, 0, -5]} scale={1.2} />
+      <Tree position={[5, 0, -5]} scale={0.8} />
+      <Tree position={[-3, 0, -8]} scale={1} />
+      <Tree position={[3, 0, -8]} scale={1.1} />
+      <Tree position={[0, 0, -10]} scale={1.3} />
+      
+      {/* Floating clouds */}
+      <Float speed={0.5} rotationIntensity={0.1} floatIntensity={0.2}>
+        <Cloud position={[-5, 3, -5]} scale={2} />
+        <Cloud position={[5, 4, -5]} scale={1.5} />
+        <Cloud position={[0, 5, -8]} scale={2.5} />
+      </Float>
+    </group>
   )
 }
