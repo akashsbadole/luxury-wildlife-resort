@@ -14,6 +14,7 @@ import { Experience } from "@/components/experience"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { ForestScene } from "@/components/forest-scene"
+import { CustomCursor } from "@/components/custom-cursor"
 import { useGSAP } from "@gsap/react"
 
 // Register GSAP plugins
@@ -79,6 +80,7 @@ export default function Home() {
         <Loader />
       ) : (
         <>
+          <CustomCursor />
           <div className="fixed inset-0 w-full h-full z-0">
             <Canvas camera={{ position: [0, 5, 15], fov: 75 }} dpr={[1, 2]} shadows>
               <ForestScene />
