@@ -39,31 +39,45 @@ const birdImages = [
     duration: 3
   },
   {
-    src: "/images/birds watching.jpg",
+    src: "/images/bird/blue-gray-tanager-bird.png",
     width: 150,
     height: 75,
     position: { top: "35%", right: "15%" },
     duration: 4
   },
   {
-    src: "/images/forest parrot.jpg",
+    src: "/images/bird/colorful-bird-flying.png",
     width: 120,
     height: 60,
     position: { top: "50%", left: "25%" },
     duration: 2.5
   },
   {
-    src: "/images/cooku birds.jpg",
+    src: "/images/bird/flying-bird-isolated.png",
     width: 180,
     height: 90,
     position: { top: "25%", right: "30%" },
     duration: 3.5
   },
   {
-    src: "/images/bird see.jpg",
+    src: "/images/bird/flying-pigeon.png",
     width: 140,
-    height: 70,
+    height: 90,
     position: { top: "65%", left: "40%" },
+    duration: 3
+  },
+  {
+    src: "/images/bird/flying-pigeon.png",
+    width: 140,
+    height: 90,
+    position: { top: "45%", left: "55%" },
+    duration: 3
+  },
+  {
+    src: "/images/bird/white-dove.png",
+    width: 140,
+    height: 90,
+    position: { top: "15%", left: "85%" },
     duration: 3
   }
 ]
@@ -116,14 +130,15 @@ export function Hero() {
       ".animate-content",
       { 
         y: 30,
-        opacity: 0
+        opacity: 1
       },
       {
         y: 0,
         opacity: 1,
         duration: 1,
         stagger: 0.2,
-        ease: "power2.out"
+        ease: "power2.out",
+        immediateRender: false
       }
     )
 
@@ -152,6 +167,9 @@ export function Hero() {
             className="object-cover"
             priority={index === 0}
             sizes="100vw"
+            onError={(e) => {
+              console.error('Error loading image:', img.src, e);
+            }}
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
@@ -160,7 +178,7 @@ export function Hero() {
       {/* Flying Birds */}
       {birdImages.map((bird, index) => (
         <div
-          key={bird.src}
+          key={`${bird.src}-${index}`}
           className="flying-bird absolute z-10"
           style={{ 
             opacity: 0,
@@ -181,7 +199,7 @@ export function Hero() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
-        <div className="max-w-6xl mx-auto bg-black/10 rounded-2xl p-12 shadow-2xl ">
+        <div className="max-w-6xl mx-auto bg-black/10 rounded-2xl p-12 shadow-2xl">
           <h1 className={`${dancingScript.className} text-7xl md:text-9xl lg:text-[10rem] mb-8 leading-[1.1] gradient-text bg-gradient-to-r from-green-800 via-green-600 to-amber-800 bg-clip-text text-transparent`}>
             {["Luxury", "Wildlife", "Retreat"].map((word, index) => (
               <span key={index} className="block">
@@ -189,10 +207,10 @@ export function Hero() {
               </span>
             ))}
           </h1>
-          <p className="animate-content text-2xl md:text-3xl text-white mb-10 font-light tracking-wide opacity-0">
+          <p className="text-2xl md:text-3xl text-white mb-10 font-light tracking-wide animate-content">
             Experience the perfect harmony of luxury and nature
           </p>
-          <button className="animate-content px-10 py-4 bg-amber-500 text-white rounded-full text-xl opacity-0 hover:bg-amber-400 transition-colors font-medium tracking-wider shadow-xl hover:scale-105 transform duration-300">
+          <button className="px-10 py-4 text-white rounded-full text-xl animate-content bg-amber-700 hover:bg-amber-600transition-colors font-medium tracking-wider shadow-xl hover:scale-105 transform duration-300">
             Start Your Journey
           </button>
         </div>

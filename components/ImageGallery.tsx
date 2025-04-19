@@ -32,7 +32,12 @@ const images = [
     src: '/images/bird see.jpg',
     alt: 'Bird See',
     title: 'Bird Sanctuary'
-  }
+  },
+  {
+    src: '/images/peackock forest.jpg',
+    alt: 'peackock forest',
+    title: 'Bird Watching'
+  },
 ]
 
 export function ImageGallery() {
@@ -71,12 +76,12 @@ export function ImageGallery() {
 
   return (
     <div ref={galleryRef} className="w-full py-20 bg-black/50">
-      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container mx-auto px-4 flex flex-row gap-4 overflow-x-auto">
         {images.map((image, index) => (
           <div
             key={index}
-            ref={el => imagesRef.current[index] = el}
-            className="relative h-[400px] group transition-all duration-500 ease-in-out hover:md:col-span-2"
+            ref={el => { imagesRef.current[index] = el }}
+            className="relative h-[400px] min-w-[300px] flex-shrink-0 group transition-all duration-500 ease-in-out hover:min-w-[600px]"
           >
             <Image
               src={image.src}

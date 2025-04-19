@@ -26,7 +26,7 @@ export function Loader() {
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a1f0a] text-amber-100"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a1f0a] text-[#00ff00]"
     >
       <div className="loader-text mb-8 overflow-hidden">
         {["W", "I", "L", "D", "L", "I", "F", "E"].map((letter, index) => (

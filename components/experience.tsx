@@ -9,22 +9,22 @@ import Image from "next/image"
 
 const experiences = [
   {
-    icon: <Binoculars className="w-10 h-10 text-amber-400" />,
+    icon: <Binoculars className="w-10 h-10 text-green-800" />,
     title: "Wildlife Safari",
     description: "Guided tours to observe exotic wildlife in their natural habitat with expert naturalists.",
   },
   {
-    icon: <Utensils className="w-10 h-10 text-amber-400" />,
+    icon: <Utensils className="w-10 h-10 text-green-800" />,
     title: "Gourmet Dining",
     description: "Farm-to-table cuisine featuring local ingredients prepared by world-class chefs.",
   },
   {
-    icon: <Compass className="w-10 h-10 text-amber-400" />,
+    icon: <Compass className="w-10 h-10 text-green-800" />,
     title: "Adventure Trails",
     description: "Hiking, biking, and horseback riding through scenic wilderness trails.",
   },
   {
-    icon: <Camera className="w-10 h-10 text-amber-400" />,
+    icon: <Camera className="w-10 h-10 text-green-800" />,
     title: "Photography Tours",
     description: "Capture stunning wildlife and landscapes with our professional photography guides.",
   },
@@ -65,16 +65,16 @@ export function Experience() {
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 "></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-amber-100 mb-6 animate-in">
-            Unforgettable <span className="text-amber-400">Experiences</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-[#00ff00] mb-6 animate-in">
+            Unforgettable <span className="text-green-800">Experiences</span>
           </h2>
 
-          <p className="text-amber-100/90 animate-in">
+          <p className="text-[#00ff00]/90 animate-in">
             Immerse yourself in a world of adventure and relaxation with our curated experiences designed to connect you
             with nature and luxury.
           </p>
@@ -90,14 +90,14 @@ export function Experience() {
                 {item.icon}
               </div>
 
-              <h3 className="text-xl font-bold text-amber-100 mb-3">{item.title}</h3>
+              <h3 className="text-xl font-bold text-[#00ff00] mb-3">{item.title}</h3>
               <p className="text-amber-200/80">{item.description}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-16 text-center animate-in">
-          <button className="px-8 py-3 bg-amber-700 hover:bg-amber-600 text-amber-100 rounded-full transition-colors text-lg">
+          <button className="px-8 py-3 bg-amber-700 hover:bg-amber-600 text-[#00ff00] rounded-full transition-colors text-lg">
             Explore All Experiences
           </button>
         </div>

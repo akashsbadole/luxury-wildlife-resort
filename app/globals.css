@@ -35,17 +35,17 @@ body {
 .gradient-text {
   background: linear-gradient(
     45deg,
-    #ffd700 0%,
-    #ffffff 25%,
-    #ffd700 50%,
-    #ffffff 75%,
-    #ffd700 100%
+    #00ff00 0%,
+    #004225 25%,
+    #00ff0091 50%,
+    #77dd77 75%,
+    #77dd77 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
-  color: #ffd700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
-               0 0 30px rgba(255, 215, 0, 0.5);
+  color: #77dd77;
+  text-shadow: 2px 2px 4px #000
+               0 0 30px #77dd77;
   font-weight: 700;
   letter-spacing: 2px;
 }

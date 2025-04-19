@@ -1,15 +1,24 @@
 export function Footer() {
   return (
-    <footer className="relative py-12 md:py-16 bg-black/60 backdrop-blur-md border-t border-amber-900/30">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer 
+      className="relative py-12 md:py-16 border-t border-amber-900/30 " 
+      style={{
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/green-forest-scenes.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        position: "relative"
+      }}
+    >
+      <div className="container mx-auto px-4 md:px-6 relative z-10 ">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-bold text-amber-100 mb-4">WILDLUXURY</h3>
-            <p className="text-amber-200/70 mb-4">
+            <h3 className="text-xl font-bold text-[#00ff00] mb-4">WILDLUXURY</h3>
+            <p className="text-white mb-4">
               Where luxury meets wilderness. Experience nature like never before in our exclusive resort.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">
+              <a href="#" className="text-green-800 hover:text-amber-300 transition-colors">
                 <span className="sr-only">Facebook</span>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -19,7 +28,7 @@ export function Footer() {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">
+              <a href="#" className="text-green-800 hover:text-amber-300 transition-colors">
                 <span className="sr-only">Instagram</span>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path
@@ -29,7 +38,7 @@ export function Footer() {
                   />
                 </svg>
               </a>
-              <a href="#" className="text-amber-400 hover:text-amber-300 transition-colors">
+              <a href="#" className="text-green-800 hover:text-amber-300 transition-colors">
                 <span className="sr-only">Twitter</span>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -39,30 +48,30 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-amber-100 mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Accommodations
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Experiences
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Contact
                 </a>
               </li>
@@ -70,25 +79,25 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-amber-100 mb-4">Policies</h4>
+            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">Policies</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Terms & Conditions
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   Cancellation Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-amber-200/70 hover:text-amber-400 transition-colors">
+                <a href="#" className="text-white-400/80 hover:text-green-800 transition-colors">
                   FAQ
                 </a>
               </li>
@@ -96,17 +105,17 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-amber-100 mb-4">Newsletter</h4>
-            <p className="text-amber-200/70 mb-4">Subscribe to receive updates on special offers and events.</p>
+            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">Newsletter</h4>
+            <p className="text-white mb-4">Subscribe to receive updates on special offers and events.</p>
             <form className="space-y-2">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-amber-100 focus:outline-none focus:border-amber-500/70"
+                className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-amber-700 hover:bg-amber-600 text-amber-100 rounded-lg transition-colors"
+                className="w-full py-2 bg-amber-700 hover:bg-amber-600 text-white rounded-lg transition-colors"
               >
                 Subscribe
               </button>
@@ -115,7 +124,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-amber-900/30 pt-8 text-center">
-          <p className="text-amber-200/60">&copy; {new Date().getFullYear()} WILDLUXURY Resort. All rights reserved.</p>
+          <p className="text-white-200/60">&copy; {new Date().getFullYear()} WILDLUXURY Resort. All rights reserved.</p>
         </div>
       </div>
     </footer>

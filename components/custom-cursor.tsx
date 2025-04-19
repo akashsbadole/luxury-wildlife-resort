@@ -73,7 +73,7 @@ export function CustomCursor() {
       {/* Tiger image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/tiger-96.png"
+          src="/green-plants.png"
           alt="Tiger cursor"
           width={48}
           height={48}

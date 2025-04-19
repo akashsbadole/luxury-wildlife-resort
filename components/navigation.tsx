@@ -38,31 +38,31 @@ export function Navigation() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-2xl font-bold text-amber-100 flex items-center"
+          className="text-2xl font-bold text-[#00ff00] flex items-center"
           onClick={(e) => {
             e.preventDefault()
             scrollToSection("hero")
           }}
         >
-          <span className="text-amber-400">WILD</span>LUXURY
+          <span className="text-green-800">WILD</span>LUXURY
         </a>
 
         <nav className="hidden md:flex items-center space-x-8">
           {["About", "Accommodations", "Experience", "Contact"].map((item) => (
             <button
               key={item}
-              className="text-amber-100 hover:text-amber-400 transition-colors"
+              className="text-[#00ff00] hover:text-green-800 transition-colors"
               onClick={() => scrollToSection(item.toLowerCase())}
             >
               {item}
             </button>
           ))}
-          <button className="px-5 py-2 bg-amber-700 hover:bg-amber-600 text-amber-100 rounded-full transition-colors">
+          <button className="px-5 py-2 bg-amber-700 hover:bg-amber-600 text-[#00ff00] rounded-full transition-colors">
             Book Now
           </button>
         </nav>
 
-        <button className="md:hidden text-amber-100" onClick={toggleMenu} aria-label="Toggle menu">
+        <button className="md:hidden text-[#00ff00]" onClick={toggleMenu} aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -77,13 +77,13 @@ export function Navigation() {
           {["About", "Accommodations", "Experience", "Contact"].map((item) => (
             <button
               key={item}
-              className="text-2xl text-amber-100 hover:text-amber-400 transition-colors"
+              className="text-2xl text-[#00ff00] hover:text-green-800 transition-colors"
               onClick={() => scrollToSection(item.toLowerCase())}
             >
               {item}
             </button>
           ))}
-          <button className="mt-4 px-8 py-3 bg-amber-700 hover:bg-amber-600 text-amber-100 rounded-full transition-colors text-lg">
+          <button className="mt-4 px-8 py-3 bg-amber-700 hover:bg-amber-600 text-[#00ff00] rounded-full transition-colors text-lg">
             Book Now
           </button>
         </nav>

@@ -60,23 +60,31 @@ export function ContentSection({
       )
 
       // Content animation
-      gsap.from(sectionRef.current.querySelector('.content-animate'), {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        delay: 0.5,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          end: "bottom 20%",
-          toggleActions: "play none none reverse",
+      gsap.fromTo(
+        sectionRef.current.querySelector('.content-animate'),
+        {
+          opacity: 0,
+          y: 50
         },
-      })
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.5,
+          ease: "power3.out",
+          immediateRender: false,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none reverse",
+          },
+        }
+      )
 
       // Image animation
       gsap.from(sectionRef.current.querySelector('.image-animate'), {
-        opacity: 0,
+        opacity: 1,
         x: reverse ? 50 : -50,
         duration: 1,
         delay: 0.3,
@@ -92,20 +100,20 @@ export function ContentSection({
   }, [reverse, title])
 
   return (
-    <section ref={sectionRef} className="py-20 overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 overflow-hidden">
       <div className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center ${reverse ? 'direction-rtl' : ''}`}>
-        <div className={`space-y-6 ${reverse ? 'md:order-2' : ''}`}>
+        <div className={`space-y-6 px-5 ${reverse ? 'md:order-2 px-5' : ''}`}>
           <h2 
             ref={titleRef} 
-            className="text-4xl md:text-5xl font-bold text-amber-100 perspective-1000"
+            className="text-4xl md:text-5xl font-bold text-[#00ff00] perspective-1000"
           >
             {title}
           </h2>
           <div className="content-animate">
-            <h3 className="text-xl md:text-2xl text-amber-200/80 font-semibold mb-4">
+            <h3 className="text-xl md:text-2xl text-white text-amber-200/80 font-semibold mb-4">
               {subtitle}
             </h3>
-            <p className="text-lg text-amber-100/70">
+            <p className="text-lg text-white  text-[#00ff00]/70">
               {description}
             </p>
           </div>

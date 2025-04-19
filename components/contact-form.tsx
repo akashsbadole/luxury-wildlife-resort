@@ -65,7 +65,7 @@ export function ContactForm() {
             {...register('name')}
             type="text"
             id="name"
-            className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-amber-100 focus:outline-none focus:border-amber-500/70"
+            className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
             placeholder="Your name"
           />
           {errors.name && (
@@ -81,7 +81,7 @@ export function ContactForm() {
             {...register('email')}
             type="email"
             id="email"
-            className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-amber-100 focus:outline-none focus:border-amber-500/70"
+            className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
             placeholder="your@email.com"
           />
           {errors.email && (
@@ -98,7 +98,7 @@ export function ContactForm() {
           {...register('phone')}
           type="tel"
           id="phone"
-          className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-amber-100 focus:outline-none focus:border-amber-500/70"
+          className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
           placeholder="Your phone number"
         />
         {errors.phone && (
@@ -114,7 +114,7 @@ export function ContactForm() {
           {...register('message')}
           id="message"
           rows={4}
-          className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-amber-100 focus:outline-none focus:border-amber-500/70"
+          className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
           placeholder="Your message"
         />
         {errors.message && (
@@ -126,7 +126,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full py-3 bg-amber-700 hover:bg-amber-600 disabled:bg-amber-900/50 text-amber-100 rounded-lg transition-colors flex items-center justify-center"
+          className="w-full py-3 bg-amber-700 hover:bg-amber-600 disabled:bg-amber-900/50 text-[#00ff00] rounded-lg transition-colors flex items-center justify-center"
         >
           {isSubmitting ? (
             <>
