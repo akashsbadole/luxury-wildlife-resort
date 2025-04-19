@@ -75,8 +75,8 @@ export function CustomCursor() {
         <Image
           src="/tiger-96.png"
           alt="Tiger cursor"
-          width={96}
-          height={96}
+          width={48}
+          height={48}
           className="w-full h-full object-contain animate-slight-bounce"
           priority
         />

@@ -32,20 +32,35 @@ body {
 }
 
 /* Gradient text animation */
-@keyframes textShimmer {
-  0% {
-    background-position: -500% 0;
-  }
-  100% {
-    background-position: 500% 0;
-  }
-}
-
 .gradient-text {
-  background: linear-gradient(to right, #ffd700, #f5a623, #ffd700, #f5a623);
-  background-size: 200% auto;
-  color: transparent;
+  background: linear-gradient(
+    45deg,
+    #ffd700 0%,
+    #ffffff 25%,
+    #ffd700 50%,
+    #ffffff 75%,
+    #ffd700 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
-  animation: textShimmer 8s linear infinite;
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+               0 0 30px rgba(255, 215, 0, 0.5);
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* Add animation only after hydration */
+.gradient-text.animated {
+  color: transparent;
+  animation: textShimmer 6s linear infinite;
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
