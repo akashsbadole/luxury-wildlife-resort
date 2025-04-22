@@ -1,57 +1,59 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ScrollToPlugin } from "gsap/ScrollToPlugin"
-import { useGSAP } from "@gsap/react"
-import { Loader } from "@/components/loader"
-import { Navigation } from "@/components/navigation"
-import { Hero } from "@/components/hero"
-import { About } from "@/components/about"
-import { ImageGallery } from "@/components/ImageGallery"
-import { ContentSection } from "@/components/ContentSection"
-import { Accommodations } from "@/components/accommodations"
-import { Experience } from "@/components/experience"
-import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
-import { CustomCursor } from "@/components/custom-cursor"
+import { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { useGSAP } from "@gsap/react";
+import { Loader } from "@/components/loader";
+import { Navigation } from "@/components/navigation";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { ImageGallery } from "@/components/ImageGallery";
+import { ContentSection } from "@/components/ContentSection";
+import { Accommodations } from "@/components/accommodations";
+import { Experience } from "@/components/experience";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 
 // Register GSAP plugins
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const contentSections = [
   {
     title: "Immerse in Nature",
     subtitle: "Where Wilderness Meets Comfort",
-    description: "Experience the thrill of the wild while enjoying world-class amenities. Our resort seamlessly blends into the natural landscape, offering you an authentic wildlife experience without compromising on luxury.",
-    image: "/images/peackock forest.jpg",
-    imageAlt: "Peacock in Forest"
+    description:
+      "Experience the thrill of the wild while enjoying world-class amenities. Our resort seamlessly blends into the natural landscape, offering you an authentic wildlife experience without compromising on luxury.",
+    image: "/images/tourist-place-images.png",
+    imageAlt: "Peacock in Forest",
   },
   {
     title: "Luxurious Stays",
     subtitle: "Comfort in the Wild",
-    description: "Our carefully designed accommodations offer the perfect retreat after a day of adventure. Each room provides stunning views of the surrounding wilderness while ensuring your utmost comfort.",
-    image: "/images/indian forest.jpg",
+    description:
+      "Our carefully designed accommodations offer the perfect retreat after a day of adventure. Each room provides stunning views of the surrounding wilderness while ensuring your utmost comfort.",
+    image: "/images/Land-Image-1.jpg",
     imageAlt: "Luxury Forest View",
-    reverse: true
+    reverse: true,
   },
   {
     title: "Wildlife Adventures",
     subtitle: "Connect with Nature",
-    description: "Join our expert guides on carefully crafted safari experiences. Witness the majesty of wildlife in their natural habitat, from dawn safaris to nighttime adventures.",
-    image: "/images/tiger and babay.jpg",
-    imageAlt: "Tiger with Baby"
-  }
-]
+    description:
+      "Join our expert guides on carefully crafted safari experiences. Witness the majesty of wildlife in their natural habitat, from dawn safaris to nighttime adventures.",
+    image: "/images/Land-Image-2.jpg",
+    imageAlt: "Tiger with Baby",
+  },
+];
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
-  const mainRef = useRef(null)
+  const [isLoading, setIsLoading] = useState(true);
+  const mainRef = useRef(null);
 
   useGSAP(() => {
     // Initialize scroll animations for sections
-    const sections = document.querySelectorAll("section")
+    const sections = document.querySelectorAll("section");
 
     sections.forEach((section) => {
       gsap.fromTo(
@@ -71,9 +73,9 @@ export default function Home() {
             start: "top 70%",
             toggleActions: "play none none none",
           },
-        },
-      )
-    })
+        }
+      );
+    });
 
     // Parallax effects for images
     document.querySelectorAll(".parallax-img").forEach((img) => {
@@ -86,18 +88,18 @@ export default function Home() {
           end: "bottom top",
           scrub: true,
         },
-      })
-    })
-  }, [])
+      });
+    });
+  }, []);
 
   useEffect(() => {
     // Simulate loading time
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+      setIsLoading(false);
+    }, 3000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main ref={mainRef} className="relative bg-black">
@@ -105,7 +107,6 @@ export default function Home() {
         <Loader />
       ) : (
         <>
-          <CustomCursor />
           <Navigation />
           <Hero />
           <About />
@@ -120,5 +121,5 @@ export default function Home() {
         </>
       )}
     </main>
-  )
+  );
 }

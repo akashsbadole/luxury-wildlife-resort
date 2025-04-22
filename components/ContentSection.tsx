@@ -1,43 +1,46 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from 'react'
-import Image from 'next/image'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef, useEffect } from "react";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 interface ContentSectionProps {
-  title: string
-  subtitle: string
-  description: string
-  image: string
-  imageAlt: string
-  reverse?: boolean
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  reverse?: boolean;
 }
 
-export function ContentSection({ 
-  title, 
-  subtitle, 
-  description, 
-  image, 
+export function ContentSection({
+  title,
+  subtitle,
+  description,
+  image,
   imageAlt,
-  reverse = false 
+  reverse = false,
 }: ContentSectionProps) {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     if (sectionRef.current && titleRef.current) {
       // Create spans for each word in the title
-      const words = title.split(' ').map(word => `<span class="inline-block">${word}</span>`).join(' ')
+      const words = title
+        .split(" ")
+        .map((word) => `<span class="inline-block">${word}</span>`)
+        .join(" ");
       if (titleRef.current) {
-        titleRef.current.innerHTML = words
+        titleRef.current.innerHTML = words;
       }
 
       // Animate each word
       gsap.fromTo(
-        titleRef.current.querySelectorAll('span'),
+        titleRef.current.querySelectorAll("span"),
         {
           opacity: 0,
           y: 50,
@@ -57,14 +60,14 @@ export function ContentSection({
             toggleActions: "play none none reverse",
           },
         }
-      )
+      );
 
       // Content animation
       gsap.fromTo(
-        sectionRef.current.querySelector('.content-animate'),
+        sectionRef.current.querySelector(".content-animate"),
         {
           opacity: 0,
-          y: 50
+          y: 50,
         },
         {
           opacity: 1,
@@ -80,10 +83,10 @@ export function ContentSection({
             toggleActions: "play none reverse",
           },
         }
-      )
+      );
 
       // Image animation
-      gsap.from(sectionRef.current.querySelector('.image-animate'), {
+      gsap.from(sectionRef.current.querySelector(".image-animate"), {
         opacity: 1,
         x: reverse ? 50 : -50,
         duration: 1,
@@ -95,39 +98,51 @@ export function ContentSection({
           end: "bottom 20%",
           toggleActions: "play none none reverse",
         },
-      })
+      });
     }
-  }, [reverse, title])
+  }, [reverse, title]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 overflow-hidden">
-      <div className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center ${reverse ? 'direction-rtl' : ''}`}>
-        <div className={`space-y-6 px-5 ${reverse ? 'md:order-2 px-5' : ''}`}>
-          <h2 
-            ref={titleRef} 
+    <section ref={sectionRef} className="py-6 md:py-0 overflow-hidden">
+      <div
+        className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center bg-[#053c36] ${
+          reverse ? "direction-rtl bg-[#fff8f0]" : ""
+        }`}
+      >
+        <div className={`space-y-6 px-5${reverse ? "md:order-2 px-5" : ""}`}>
+          <h2
+            ref={titleRef}
             className="text-4xl md:text-5xl font-bold text-[#00ff00] perspective-1000"
           >
             {title}
           </h2>
           <div className="content-animate">
-            <h3 className="text-xl md:text-2xl text-white text-amber-200/80 font-semibold mb-4">
+            <h3
+              className={`${
+                reverse ? "text-black " : "text-white"
+              } text-xl md:text-2xl font-semibold mb-4`}
+            >
               {subtitle}
             </h3>
-            <p className="text-lg text-white  text-[#00ff00]/70">
+            <p className={`${reverse ? "text-black " : "text-white"} text-lg `}>
               {description}
             </p>
           </div>
         </div>
-        
-        <div className={`image-animate relative h-[500px] ${reverse ? 'md:order-1' : ''}`}>
+
+        <div
+          className={`image-animate relative h-[500px] ${
+            reverse ? "md:order-1" : ""
+          }`}
+        >
           <Image
             src={image}
             alt={imageAlt}
             fill
-            className="object-cover rounded-2xl"
+            className="object-contain rounded-2xl"
           />
         </div>
       </div>
     </section>
-  )
-} 
+  );
+}

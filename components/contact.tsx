@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
-import Image from "next/image"
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import Image from "next/image";
 
 // Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export function Contact() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -29,8 +29,8 @@ export function Contact() {
           trigger: sectionRef.current,
           start: "top 70%",
         },
-      },
-    )
+      }
+    );
 
     gsap.fromTo(
       ".contact-info",
@@ -47,35 +47,36 @@ export function Contact() {
           trigger: sectionRef.current,
           start: "top 70%",
         },
-      },
-    )
+      }
+    );
 
     // Add 3D tilt effect to contact cards
-    const contactCards = document.querySelectorAll<HTMLElement>('.contact-card')
-    contactCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect()
-        const x = e.clientX - rect.left
-        const y = e.clientY - rect.top
-        
+    const contactCards =
+      document.querySelectorAll<HTMLElement>(".contact-card");
+    contactCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
         gsap.to(card, {
-          rotationY: (x - rect.width/2) * 0.1,
-          rotationX: -(y - rect.height/2) * 0.1,
+          rotationY: (x - rect.width / 2) * 0.1,
+          rotationX: -(y - rect.height / 2) * 0.1,
           transformPerspective: 1000,
           duration: 0.5,
-          ease: "power2.out"
-        })
-      })
+          ease: "power2.out",
+        });
+      });
 
-      card.addEventListener('mouseleave', () => {
+      card.addEventListener("mouseleave", () => {
         gsap.to(card, {
           rotationY: 0,
           rotationX: 0,
           duration: 0.5,
-          ease: "power2.out"
-        })
-      })
-    })
+          ease: "power2.out",
+        });
+      });
+    });
 
     // Add parallax effect to background
     gsap.to(".background-image", {
@@ -85,23 +86,19 @@ export function Contact() {
         trigger: sectionRef.current,
         start: "top bottom",
         end: "bottom top",
-        scrub: true
-      }
-    })
-  }, [])
+        scrub: true,
+      },
+    });
+  }, []);
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-24 md:py-32 overflow-hidden">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="relative py-24 md:py-32 overflow-hidden bg-[#053c36]"
+    >
       <div className="absolute inset-0 z-0">
-        <div className="background-image absolute inset-0">
-          <Image
-            src="/tropical-leaves.png"
-            alt="Tropical Leaves Background"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        <div className="background-image absolute inset-0"></div>
         <div className="absolute inset-0 bg-black/60" />
       </div>
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -111,7 +108,8 @@ export function Contact() {
           </h2>
 
           <p className="text-[#00ff00]/90 animate-in">
-            Have questions or ready to book your stay? Reach out to our team for personalized assistance.
+            Have questions or ready to book your stay? Reach out to our team for
+            personalized assistance.
           </p>
         </div>
 
@@ -132,30 +130,44 @@ export function Contact() {
 
             <div className="space-y-6">
               <div className="flex items-start">
+                <div>
+                  <h4 className="font-medium text-[#fff8f0]">
+                    We are not offering a packaged product. We're offering a
+                    platform - To Redefine Tourism, Support Regeneration, and
+                    Create Something Enduring. If this vision aligns with yours,
+                    we invite you to walk this path with us.
+                  </h4>
+                  <h4 className="font-medium text-[#fff8f0] mt-4">
+                    The Forest Remembers. The Land Listens. The Dam Holds
+                    Stories. And this space is waiting...
+                  </h4>
+                  <h4 className="font-medium text-[#fff8f0] mt-4">
+                    LET'S REWIND TOGETHER
+                  </h4>
+                </div>
+              </div>
+              {/* <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-[#00ff00]">Location</h4>
                   <p className="text-amber-200/80">123 Wilderness Road, Forest Reserve, Nature Country</p>
                 </div>
-              </div>
-
-              <div className="flex items-start">
+              </div> */}
+              {/* <div className="flex items-start">
                 <Phone className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-[#00ff00]">Phone</h4>
                   <p className="text-amber-200/80">+1 (555) 123-4567</p>
                 </div>
-              </div>
-
-              <div className="flex items-start">
+              </div> */}
+              {/* <div className="flex items-start">
                 <Mail className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-[#00ff00]">Email</h4>
                   <p className="text-amber-200/80">info@wildluxury.com</p>
                 </div>
-              </div>
-
-              <div className="flex items-start">
+              </div> */}
+              {/* <div className="flex items-start">
                 <Clock className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
                 <div>
                   <h4 className="font-medium text-[#00ff00]">Hours</h4>
@@ -165,12 +177,12 @@ export function Contact() {
                     Reception: 6:00 AM - 10:00 PM
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div className="contact-card contact-form bg-black/40 backdrop-blur-md rounded-2xl p-8 transform-gpu transition-transform duration-300">
-            <form className="space-y-6">
+            {/* <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-[#00ff00] mb-2">
@@ -229,10 +241,40 @@ export function Contact() {
                   Send Message
                 </button>
               </div>
-            </form>
+            </form> */}
+
+            <h2 className="text-bold leading-9 text-3xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-5xl">Lead</span> Design &
+              Project Management:
+            </h2>
+            <h3 className="text-bold leading-9 text-3xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-5xl">Cluster</span> One
+              Creative Solutions Pvt. Ltd.{" "}
+            </h3>
+
+            <h3 className="text-bold leading-9 text-2xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-3xl">Contact Person: </span>{" "}
+              Parag Ainchwar{" "}
+            </h3>
+
+            <div className="flex items-start">
+              <Phone className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-[#00ff00]">Phone</h4>
+                <p className="text-amber-200/80">+91 94220 13178</p>
+              </div>
+            </div>
+
+            <div className="flex items-start">
+              <Mail className="w-5 h-5 text-green-800 mt-1 mr-3 flex-shrink-0" />
+              <div>
+                <h4 className="font-medium text-[#00ff00]">Email</h4>
+                <p className="text-amber-200/80">p.ainchwar@cluster-one.net</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
