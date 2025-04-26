@@ -60,7 +60,7 @@ export function Accommodations() {
     <section
       id="accommodations"
       ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden bg-[#fff8f0]"
+      className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 via-green-100/80 to-lime-100"
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">

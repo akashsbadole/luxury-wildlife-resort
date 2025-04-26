@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { gsap } from "gsap"
-import { useGSAP } from "@gsap/react"
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export function Loader() {
-  const loaderRef = useRef(null)
+  const loaderRef = useRef(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline()
+    const tl = gsap.timeline();
 
     tl.to(".loader-text span", {
       y: 0,
@@ -20,13 +20,13 @@ export function Loader() {
       width: "100%",
       duration: 2,
       ease: "power2.inOut",
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div
       ref={loaderRef}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a1f0a] text-[#00ff00]"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a1f0a] text-[#053c36]]"
     >
       <div className="loader-text mb-8 overflow-hidden">
         {["W", "I", "L", "D", "L", "I", "F", "E"].map((letter, index) => (
@@ -47,7 +47,9 @@ export function Loader() {
         <div className="loader-progress w-0 h-full bg-amber-500 rounded-full"></div>
       </div>
 
-      <p className="mt-4 text-amber-200/80 italic">Entering the wilderness...</p>
+      <p className="mt-4 text-amber-200/80 italic">
+        Entering the wilderness...
+      </p>
     </div>
-  )
+  );
 }

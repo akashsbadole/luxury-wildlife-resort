@@ -243,17 +243,17 @@ export function Contact() {
               </div>
             </form> */}
 
-            <h2 className="text-bold leading-9 text-3xl text-white mb-6 animate-in">
-              <span className="text-[#fff8f0] text-5xl">Lead</span> Design &
-              Project Management:
+            <h2 className="text-bold leading-9 text-xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-xl underline">Lead</span>{" "}
+              Design & Project Management:
             </h2>
-            <h3 className="text-bold leading-9 text-3xl text-white mb-6 animate-in">
-              <span className="text-[#fff8f0] text-5xl">Cluster</span> One
-              Creative Solutions Pvt. Ltd.{" "}
+            <h3 className="text-bold leading-9 text-xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-xl underline">Cluster</span>{" "}
+              One Creative Solutions Pvt. Ltd.{" "}
             </h3>
 
-            <h3 className="text-bold leading-9 text-2xl text-white mb-6 animate-in">
-              <span className="text-[#fff8f0] text-3xl">Contact Person: </span>{" "}
+            <h3 className="text-bold leading-9 text-xl text-white mb-6 animate-in">
+              <span className="text-[#fff8f0] text-xl">Contact Person: </span>{" "}
               Parag Ainchwar{" "}
             </h3>
 

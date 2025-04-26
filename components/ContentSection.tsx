@@ -106,10 +106,12 @@ export function ContentSection({
     <section ref={sectionRef} className="py-6 md:py-0 overflow-hidden">
       <div
         className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center bg-[#053c36] ${
-          reverse ? "direction-rtl bg-[#fff8f0]" : ""
+          reverse
+            ? "direction-rtl bg-gradient-to-br from-emerald-50 via-green-100/80 to-lime-100 px-0"
+            : ""
         }`}
       >
-        <div className={`space-y-6 px-5${reverse ? "md:order-2 px-5" : ""}`}>
+        <div className={`space-y-6 px-5 ${reverse ? "md:order-2" : ""} `}>
           <h2
             ref={titleRef}
             className="text-4xl md:text-5xl font-bold text-[#00ff00] perspective-1000"
@@ -120,7 +122,7 @@ export function ContentSection({
             <h3
               className={`${
                 reverse ? "text-black " : "text-white"
-              } text-xl md:text-2xl font-semibold mb-4`}
+              } text-xl md:text-2xl font-semibold mb-4 `}
             >
               {subtitle}
             </h3>

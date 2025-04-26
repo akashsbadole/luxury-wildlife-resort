@@ -9,12 +9,14 @@ import { Loader } from "@/components/loader";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-import { ImageGallery } from "@/components/ImageGallery";
+// import { ImageGallery } from "@/components/ImageGallery";
 import { ContentSection } from "@/components/ContentSection";
 import { Accommodations } from "@/components/accommodations";
 import { Experience } from "@/components/experience";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import DistanceSection from "@/components/address";
+import TouristAttractionsSection from "@/components/TouristAttractionsSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -112,10 +114,12 @@ export default function Home() {
           <About />
           <Accommodations />
           <Experience />
-          <ImageGallery />
+          {/* <ImageGallery /> */}
           {contentSections.map((section, index) => (
             <ContentSection key={index} {...section} />
           ))}
+          <DistanceSection />
+          <TouristAttractionsSection />
           <Contact />
           <Footer />
         </>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { headers } from "next/headers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -8,65 +9,69 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: "Luxury Wildlife Retreat | Premium Nature Experience",
-  description:
-    "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
-  keywords: [
-    "luxury wildlife retreat",
-    "nature experience",
-    "premium accommodations",
-    "wildlife sanctuary",
-    "eco-tourism",
-    "luxury cabins",
-    "forest retreat",
-  ],
-  authors: [{ name: "Luxury Wildlife Retreat" }],
-  openGraph: {
+async function getMetadata(): Promise<Metadata> {
+  const host = (await headers()).get("host") || "localhost:3000";
+
+  return {
+    metadataBase: new URL(`https://${host}`),
     title: "Luxury Wildlife Retreat | Premium Nature Experience",
     description:
       "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
-    // url: 'https://luxurywildliferetreat.com',
-    siteName: "Luxury Wildlife Retreat",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Luxury Wildlife Retreat - Premium Nature Experience",
-      },
+    keywords: [
+      "luxury wildlife retreat",
+      "nature experience",
+      "premium accommodations",
+      "wildlife sanctuary",
+      "eco-tourism",
+      "luxury cabins",
+      "forest retreat",
     ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Luxury Wildlife Retreat | Premium Nature Experience",
-    description:
-      "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Luxury Wildlife Retreat" }],
+    openGraph: {
+      title: "Luxury Wildlife Retreat | Premium Nature Experience",
+      description:
+        "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
+      url: new URL(`https://${host}`),
+      siteName: "Luxury Wildlife Retreat",
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Luxury Wildlife Retreat - Premium Nature Experience",
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Luxury Wildlife Retreat | Premium Nature Experience",
+      description:
+        "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
+      images: ["/og-image.jpg"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  verification: {
-    google: "your-google-site-verification",
-  },
-};
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const metadata = await getMetadata();
+
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans" suppressHydrationWarning>
