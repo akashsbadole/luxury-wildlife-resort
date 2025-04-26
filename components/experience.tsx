@@ -5,37 +5,49 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import {
   TelescopeIcon as Binoculars,
-  Utensils,
+  Bird,
   Compass,
   Camera,
+  LandPlot,
+  Wind,
+  Fan,
 } from "lucide-react";
 import { EdgeHoverEffect } from "./edge-hover-effect";
 import Image from "next/image";
 
 const experiences = [
   {
-    icon: <Binoculars className="w-10 h-10 text-green-800" />,
+    icon: <LandPlot className="w-10 h-10 text-green-800" />,
     title: "Wildlife Safari",
-    description:
-      "Guided tours to observe exotic wildlife in their natural habitat with expert naturalists.",
+    description: "50 acres of privately-owned land.",
   },
   {
-    icon: <Utensils className="w-10 h-10 text-green-800" />,
+    icon: <Bird className="w-10 h-10 text-green-800" />,
     title: "Gourmet Dining",
-    description:
-      "Farm-to-table cuisine featuring local ingredients prepared by world-class chefs.",
+    description: "Bordering thr Tipeshwar Wildlife Sanctuary.",
   },
   {
     icon: <Compass className="w-10 h-10 text-green-800" />,
     title: "Adventure Trails",
     description:
-      "Hiking, biking, and horseback riding through scenic wilderness trails.",
+      "Hugging the quit waters of the Muchi Dam Spillover & Reservoir.",
+  },
+  {
+    icon: <Fan className="w-10 h-10 text-green-800" />,
+    title: "Photography Tours",
+    description: "Uninterrupted views, zero commercial pollution.",
+  },
+  {
+    icon: <Wind className="w-10 h-10 text-green-800" />,
+    title: "Adventure Trails",
+    description:
+      "Rich in biodiversity - with freqent tiger sightings and more.",
   },
   {
     icon: <Camera className="w-10 h-10 text-green-800" />,
     title: "Photography Tours",
     description:
-      "Capture stunning wildlife and landscapes with our professional photography guides.",
+      "The land is fertile. untouched. Waiting not to be conquered - but colloborated with nature.",
   },
 ];
 
@@ -69,11 +81,18 @@ export function Experience() {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-24 md:py-32 overflow-hidden mx-auto"
     >
-      <div className="absolute inset-0 z-0">
+      <div
+        className="absolute inset-0 z-0 "
+        style={{
+          backgroundImage: `url('/images/jungle-background.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         {/* <Image
-          src="/images/tiger forest.jpg"
+          src="/images/jungle-background.jpg"
           alt="Tiger Forest Background"
           fill
           className="object-cover"
@@ -82,7 +101,7 @@ export function Experience() {
         /> */}
 
         {/* Video Background */}
-        <video
+        {/* <video
           autoPlay
           loop
           muted
@@ -90,29 +109,38 @@ export function Experience() {
         >
           <source src={videoSource} type="video/mp4" />
           Your browser does not support the video tag.
-        </video>
+        </video> */}
         <div className="absolute inset-0 "></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#00ff00] mb-6 animate-in">
-            Unforgettable <span className="text-green-800">Experiences</span>
+            The Land{" "}
+            <span className="text-green-800">Unforgettable Experiences</span>
           </h2>
 
-          <p className="text-[#00ff00]/90 animate-in">
-            Immerse yourself in a world of adventure and relaxation with our
-            curated experiences designed to connect you with nature and luxury.
-          </p>
+          <div className="bg-black/30 backdrop-saturate-200">
+            <p className="text-white animate-in text-[18px] leading-8 py-2">
+              This 50-acre, family-owned parcel lies in a region where most land
+              is reserved for tribal use, unavailable for private development,
+              making it exceptionally rare.
+            </p>
+            <p className="text-white animate-in text-[18px] leading-8 py-2">
+              Elevated above the Muchi Dam Reservoir and surrounded by hills and
+              lakes, the site enjoys a naturally pleasant microclimate and
+              year-round habitability - ideal for a nature-based resort.
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {experiences.map((item, index) => (
             <div
               key={index}
               className="experience-card bg-black/50 backdrop-blur-md rounded-2xl p-6 text-center border border-amber-900/30 hover:border-amber-500/50 transition-all"
             >
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-amber-900/30 rounded-full">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-white rounded-full">
                 {item.icon}
               </div>
 
@@ -124,7 +152,7 @@ export function Experience() {
           ))}
         </div>
 
-        <div className="mt-16 text-center animate-in">
+        <div className="mt-16 text-center animate-in hidden">
           <button className="px-8 py-3 bg-amber-700 hover:bg-amber-600 text-[#00ff00] rounded-full transition-colors text-lg">
             Explore All Experiences
           </button>

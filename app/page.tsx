@@ -17,6 +17,8 @@ import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import DistanceSection from "@/components/address";
 import TouristAttractionsSection from "@/components/TouristAttractionsSection";
+import WhyChooseUs from "@/components/WhyChoose";
+import InvestorSection from "@/components/InvestorSection";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -120,6 +122,8 @@ export default function Home() {
           ))}
           <DistanceSection />
           <TouristAttractionsSection />
+          <WhyChooseUs />
+          <InvestorSection />
           <Contact />
           <Footer />
         </>

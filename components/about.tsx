@@ -18,10 +18,22 @@ export function About() {
                 <span className="text-[#fff8f0]">Wildlife Resort</span>
               </h2>
 
-              <p className="text-[#fff8f0] mb-6 animate-in">
-                Tucked beside the Muchi Dam Spillway and Reservoir, embraced by
-                the forests of Tipeshwar, the proposed site isn’t just scenic —
-                it’s symbolic.
+              <h3 className="text-xl text-[#fff8f0] mb-6 animate-in py-4 text-justify">
+                In an Age of Constant Noise, Concrete, and Speed - There lies a
+                50-Acre Promise of Silence, simplicity, and Soulful stillness.
+              </h3>
+
+              <p className="text-[#fff8f0] mb-6 animate-in text-justify">
+                Tucked beside the Muchi dam spillway and Reservoir, embraced by
+                the forests of tipeshwar,the proposed site isn't just scenic -
+                it's symbolic. A place where life can slow down, and where
+                nature is more than a backdrop. It becomes the teacher, the
+                healer, and the home.
+              </p>
+
+              <p className="text-[#fff8f0] mb-6 animate-in text-justify">
+                The Vision for This resort Isn't to build over nature, But to
+                build with it.
               </p>
 
               <div className="flex flex-wrap gap-4 animate-in">

@@ -16,39 +16,51 @@ gsap.registerPlugin(ScrollTrigger);
 // Example data - adjust to your actual locations and distances
 const locations = [
   {
-    name: "Airport",
+    name: "Airport 150 km",
     icon: Plane,
-    road: "45 km",
-    other: "Approx. 40 min drive",
+    road: "Nagpur",
+    other: "Approx. 2.5 Hour drive",
   },
   {
-    name: "National Forest Entrance",
+    name: "Forest",
     icon: Leaf,
-    road: "2 km",
-    other: "Approx. 5 min drive",
+    road: "115 km",
+    other: "Tadoba-Andhari Tiger Reserve",
   },
   {
-    name: "Riverside Trailhead",
+    name: "Forest",
+    icon: Leaf,
+    road: "112 km",
+    other: "Painganga Wildlife Sanctuary",
+  },
+  {
+    name: "Forest",
+    icon: Leaf,
+    road: "177 km",
+    other: "Chaprala Wildlife Sanctuary",
+  },
+  {
+    name: "Sanctuary",
     icon: MapPin,
-    road: "8 km",
-    other: "Approx. 15 min drive",
+    road: "35 km",
+    other: "Tipeshwar Wildlife Sanctuary",
   },
   {
     name: "Train Station",
     icon: TrainFront,
-    road: "15 km",
-    other: "Approx. 20 min drive",
+    road: "Adilabad - 35 km",
+    other: "Overnight train from Nagpur",
   },
   {
     name: "Main Bus Stop",
     icon: Bus,
-    road: "1.5 km",
-    other: "Approx. 20 min walk",
+    road: "Near Pandharkawada",
+    other: "NH44 from Nagpur towards Hyderabad(2.5hr)",
   },
   {
-    name: "Nearest Town Center",
+    name: "Nearest Town",
     icon: Building2,
-    road: "10 km",
+    road: " Pandharkawada",
     other: "Approx. 15 min drive",
   },
 ];
@@ -186,7 +198,7 @@ function ForestDistanceSection() {
             strokeWidth={1.75}
             aria-hidden="true"
           />
-          <span className="font-semibold text-sm md:text-base text-green-900 truncate">
+          <span className="text-sm md:text-base text-green-900 truncate">
             {" "}
             {/* Added truncate */}
             {location.name}
@@ -198,7 +210,7 @@ function ForestDistanceSection() {
             {" "}
             {/* Prevent wrapping */}
             {location.road}
-            <span className="text-xs text-green-700/80 hidden sm:inline ml-1">
+            <span className="text-[9px] text-green-700/80 hidden sm:inline ml-1">
               {" "}
               (Road)
             </span>
@@ -223,13 +235,21 @@ function ForestDistanceSection() {
         {/* Section Title */}
         <h2
           ref={titleRef}
-          className="text-3xl md:text-4xl font-bold text-center text-emerald-800 mb-10 md:mb-16 opacity-0" // Start hidden
+          className="text-3xl md:text-4xl font-bold text-center text-emerald-800 mb-10 " // Start hidden
         >
           Your Forest Retreat Location
         </h2>
+        <h3 className="mx-auto text-base md:text-xl font-bold text-center text-emerald-800 mb-2">
+          The nearest major town near the proposed site is Pandharkawda, at 9.1
+          Km.
+        </h3>
+        <h3 className="mx-auto text-base md:text-xl font-bold text-center text-emerald-800 mt-2 mb-10">
+          Pandharkawda is a City and a Municipal council in Yavatmal district of
+          the Vidarbha region in Maharashtra.
+        </h3>
 
         {/* Main Layout Grid: Flex column on mobile, row on medium screens+ */}
-        <div className="flex flex-col md:flex-row md:items-start md:space-x-6 lg:space-x-10">
+        <div className="flex flex-col md:flex-row md:items-start md:space-x-6 lg:space-x-10 mb-10">
           {/* Left Column (Distances) */}
           <div
             ref={leftColRef}
@@ -269,6 +289,56 @@ function ForestDistanceSection() {
             {rightLocations.map((loc, index) =>
               renderLocationItem(loc, index, "right")
             )}
+          </div>
+        </div>
+
+        <div>
+          <h4 className="text-center text-emerald-800 mt-2 mb-10 text-[15px]">
+            Cities / towns within Driving distance: <b>Maharashtra</b>
+          </h4>
+          <div className="flex justify-center">
+            <div className="bg-white/70 backdrop-blur-sm p-4 rounded-lg border border-green-200/50 shadow-md shadow-green-500/10 hover:shadow-lg hover:shadow-green-500/20 transition-shadow duration-300 md:w-[400px] grid grid-cols-2 gap-5">
+              <ul>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Ralegaon - 65.8 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Yavatmal - 78.3 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Wardha - 102 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Chandrapur - 106 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Chimur - 123 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Nagpur - 150 Km
+                </li>
+              </ul>
+              <ul>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Amrawati - 173 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Nanded - 220 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Akola - 237 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Gondia - 293 Km
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Adilabad - 54.3 Km(Telangana)
+                </li>
+                <li className="mb-2 text-gray-700 text-[12px]">
+                  Durg - 374 Km(Chattisgarh)
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

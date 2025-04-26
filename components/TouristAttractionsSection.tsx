@@ -38,51 +38,56 @@ if (typeof window !== "undefined") {
 const attractions: Attraction[] = [
   // Top Edge
   {
-    id: "falls",
-    name: "Falls",
+    id: "local",
+    name: "Local Tribes & Cuisine",
     icon: Trees,
-    description: "Scenic waterfall",
+    description: "Local,Tribes & Cuisine",
     distance: "3 km",
     position: { top: "8%", left: "10%" },
   }, // Top-Left
   {
     id: "peak",
-    name: "Peak",
+    name: "Under 65km",
     icon: Mountain,
-    description: "Panoramic views",
+    description: `Wai Dam, Spillway and Reservoir - 10 Kms , Jagdamba Temple, Kelapur - 20 Kms Mesolithic Stoneage site. Pardi- 29 Kms, Hot Water Springs, Unkeshwar - 56 Kms, Ancient Datta Temple, Dattapur - 65 Kms`,
     distance: "5 km",
     position: { top: "2%", left: "50%" },
   }, // Top-Center
   {
     id: "cabin",
-    name: "Cabin",
+    name: "After 100km",
     icon: Castle,
-    description: "Historical site",
+    description: `\nAncient Stepwell, Adegaon - 69 Kms
+\nChintamani Ganesh Temple, Kalamb - 70 Kms
+\nMahadev Temple, Yavatmal — 75+ Kms
+\nMahakali Devi Temple, Chandrapur - 126 Kms
+\nRenuka Mata Mandir, Mahurgad - 100 Kms`,
     distance: "1.5 km",
     position: { top: "8%", left: "90%" },
   }, // Top-Right
   // Bottom Edge
   {
-    id: "cafe",
-    name: "Cafe",
+    id: "vidarbha",
+    name: "Vidarbha Style ",
     icon: UtensilsCrossed,
-    description: "Local cuisine",
+    description:
+      "Vidarbha Style with bold flavours, extensive spices, and a mix of vegetarian and non-vegetarian dishes like Pithla-Bhakri, Zunka, Varhadi Dal, Amti, Saoji Mutton, Chicken, Tambdi & Pandhra Rassa, and other tribal specialities!",
     distance: "8 km",
     position: { top: "95%", left: "85%" },
   }, // Bottom-Right
   {
-    id: "meadows",
-    name: "Meadows",
+    id: "road",
+    name: "Road",
     icon: Sparkles,
-    description: "Stargazing spot",
+    description: `Tipeshwar is well-connected by road, nearest city Pandharkawada.One can take NH44 from Nagpur towards Hyderabad. Tipeshwar is about 2.5 hours from Nagpur.`,
     distance: "12 km",
-    position: { top: "98%", left: "50%" },
+    position: { top: "102%", left: "50%" },
   }, // Bottom-Center
   {
-    id: "trail",
-    name: "Trail",
+    id: "airport",
+    name: "Airport",
     icon: Camera,
-    description: "Photogenic cave",
+    description: `Dr. Babasaheb Ambedkar International Airport in Nagpur, approximately 150 km away. Travel Time: Approximately 2.5 hours by road`,
     distance: "4 km",
     position: { top: "95%", left: "15%" },
   }, // Bottom-Left
@@ -118,7 +123,7 @@ function TouristAttractionsSection(): JSX.Element {
   const attractionRefs = useRef<Map<string, HTMLDivElement | null>>(new Map());
   const lineRefs = useRef<Map<string, SVGLineElement | null>>(new Map());
 
-  const [showAttractions, setShowAttractions] = useState<boolean>(false);
+  const [showAttractions, setShowAttractions] = useState<boolean>(true);
   const [lineStartPoint, setLineStartPoint] = useState<{
     x: string;
     y: string;

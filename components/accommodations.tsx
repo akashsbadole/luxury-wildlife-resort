@@ -65,14 +65,20 @@ export function Accommodations() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#00ff00] mb-6 animate-in">
-            Luxury <span className="text-green-800">Accommodations</span>
+            Luxury - <span className="text-green-800">The Core Intent</span>
           </h2>
 
-          <p className="animate-in text-black">
-            Choose from our selection of premium accommodations, each designed
-            to immerse you in nature while providing the ultimate comfort and
-            luxury.
+          <p className="animate-in text-black text-[16px] py-4 capitalize text-justify">
+            To create a space that blendrs sophistication with simplicity to
+            deliver a meaningful experience. To offer a sanctuary that goes
+            beyond luxury, beyond vacation. A place where time slows down, and
+            the senses awaken - to birdsong, the rustle of the forest, the scent
+            off damp soil, the laughter of village children, and the warmth of
+            fire under open skies.
           </p>
+          <blockquote className="block border-l-4 border-gray-500 italic capitalize pl-4 text-black text-base py-4 text-justify">
+            To nurture the idea that nature is not a destination - it is home.
+          </blockquote>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
