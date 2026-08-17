@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
+import { Toaster } from "@/components/ui/sonner";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="font-sans" suppressHydrationWarning>
+        <Toaster theme="dark" richColors position="top-right" />
         {children}
       </body>
     </html>

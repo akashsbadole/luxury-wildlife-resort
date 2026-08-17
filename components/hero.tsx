@@ -31,7 +31,7 @@ export function Hero() {
     <section
       id="home"
       ref={scopeRef}
-      className="relative h-[600px] flex items-center justify-center overflow-hidden"
+      className="relative h-[650px] flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
       <div className="ken-burns cinematic absolute inset-0 z-0 text-white">
@@ -51,12 +51,18 @@ export function Hero() {
       <div
         aria-hidden="true"
         className="glow-orb w-[500px] h-[500px] -top-40 -left-40"
-        style={{ background: "radial-gradient(circle, rgba(164,121,63,0.5), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(164,121,63,0.5), transparent 70%)",
+        }}
       />
       <div
         aria-hidden="true"
         className="glow-orb w-[400px] h-[400px] -bottom-48 -right-32"
-        style={{ background: "radial-gradient(circle, rgba(46,74,58,0.8), transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(46,74,58,0.8), transparent 70%)",
+        }}
       />
 
       {/* Content */}
@@ -72,7 +78,9 @@ export function Hero() {
               <span
                 key={index}
                 className={`hero-word block text-4xl md:text-7xl font-serif leading-[1.05] ${
-                  index === 1 ? "gradient-text font-semibold" : "text-linen font-light"
+                  index === 1
+                    ? "gradient-text font-semibold"
+                    : "text-linen font-light"
                 }`}
                 style={{ textShadow: "0 4px 30px rgba(0, 0, 0, 0.6)" }}
               >

@@ -7,6 +7,7 @@ import * as z from "zod"
 import { DayPicker, type DateRange } from "react-day-picker"
 import { differenceInCalendarDays } from "date-fns"
 import { Loader2, Minus, Plus, CalendarDays, Users, BedDouble } from "lucide-react"
+import { toast } from "sonner"
 import "react-day-picker/dist/style.css"
 
 const suites = [
@@ -48,6 +49,9 @@ export function BookingForm() {
   const onSubmit = async (data: FormData) => {
     if (!range?.from || !range?.to) {
       setSubmitStatus("error")
+      toast.error("Select your dates", {
+        description: "Please choose check-in and check-out dates.",
+      })
       return
     }
     setIsSubmitting(true)
@@ -70,8 +74,14 @@ export function BookingForm() {
       setRange(undefined)
       setGuests(2)
       setSuite(suites[0].value)
+      toast.success("Reservation requested", {
+        description: "Our team will confirm your stay shortly.",
+      })
     } catch {
       setSubmitStatus("error")
+      toast.error("Could not send request", {
+        description: "Please try again in a moment.",
+      })
     } finally {
       setIsSubmitting(false)
     }

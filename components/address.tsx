@@ -1,354 +1,172 @@
-// components/ForestDistanceSection.jsx
+import Image from "next/image";
+import { Plane, TrainFront, Bus, Car, MapPin } from "lucide-react";
 
-import React, { useEffect, useRef } from "react";
-import Image from "next/image"; // Import Next.js Image component
-import { Plane, Leaf, TrainFront, Bus, Building2, MapPin } from "lucide-react"; // Added MapPin for variety
-
-// --- GSAP ---
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"; // Ensure correct import path
-
-// Register ScrollTrigger plugin - IMPORTANT!
-// Do this once, ideally in your _app.js or layout.js, but here is fine too if isolated.
-gsap.registerPlugin(ScrollTrigger);
-
-// --- Location Data ---
-// Example data - adjust to your actual locations and distances
-const locations = [
+const JOURNEYS = [
   {
-    name: "Airport 150 km",
     icon: Plane,
-    road: "Nagpur",
-    other: "Approx. 2.5 Hour drive",
+    label: "By Air",
+    title: "Nagpur Airport",
+    detail: "Dr. Babasaheb Ambedkar International Airport",
+    distance: "150 km · 2.5-hour drive",
   },
   {
-    name: "Forest",
-    icon: Leaf,
-    road: "115 km",
-    other: "Tadoba-Andhari Tiger Reserve",
-  },
-  {
-    name: "Forest",
-    icon: Leaf,
-    road: "112 km",
-    other: "Painganga Wildlife Sanctuary",
-  },
-  {
-    name: "Forest",
-    icon: Leaf,
-    road: "177 km",
-    other: "Chaprala Wildlife Sanctuary",
-  },
-  {
-    name: "Sanctuary",
-    icon: MapPin,
-    road: "35 km",
-    other: "Tipeshwar Wildlife Sanctuary",
-  },
-  {
-    name: "Train Station",
     icon: TrainFront,
-    road: "Adilabad - 35 km",
-    other: "Overnight train from Nagpur",
+    label: "By Rail",
+    title: "Adilabad Station",
+    detail: "Overnight train from Nagpur, then a short road transfer",
+    distance: "35 km",
   },
   {
-    name: "Main Bus Stop",
+    icon: Car,
+    label: "By Road",
+    title: "NH44 from Nagpur",
+    detail: "The highway towards Hyderabad, through Vidarbha countryside",
+    distance: "2.5 hours",
+  },
+  {
     icon: Bus,
-    road: "Near Pandharkawada",
-    other: "NH44 from Nagpur towards Hyderabad(2.5hr)",
-  },
-  {
-    name: "Nearest Town",
-    icon: Building2,
-    road: " Pandharkawada",
-    other: "Approx. 15 min drive",
+    label: "Nearest Town",
+    title: "Pandharkawada",
+    detail: "City and municipal council in the Yavatmal district",
+    distance: "9 km · 15 minutes",
   },
 ];
 
-// Split locations for left and right columns dynamically
-const halfwayIndex = Math.ceil(locations.length / 2);
-const leftLocations = locations.slice(0, halfwayIndex);
-const rightLocations = locations.slice(halfwayIndex);
+const TOWNS = [
+  { name: "Ralegaon", distance: "65.8 km" },
+  { name: "Yavatmal", distance: "78.3 km" },
+  { name: "Wardha", distance: "102 km" },
+  { name: "Chandrapur", distance: "106 km" },
+  { name: "Chimur", distance: "123 km" },
+  { name: "Nagpur", distance: "150 km" },
+  { name: "Amravati", distance: "173 km" },
+  { name: "Nanded", distance: "220 km" },
+  { name: "Adilabad", distance: "54.3 km" },
+  { name: "Akola", distance: "237 km" },
+];
 
-function ForestDistanceSection() {
-  // --- Refs for Animation Targets ---
-  const sectionRef = useRef(null); // Ref for the whole section (ScrollTrigger trigger)
-  const imageContainerRef = useRef(null); // Ref for the image container
-  const titleRef = useRef(null); // Ref for the title
-  const leftColRef = useRef(null); // Ref for left column items container
-  const rightColRef = useRef(null); // Ref for right column items container
+const RESERVES = [
+  { name: "Tipeshwar Wildlife Sanctuary", distance: "35 km" },
+  { name: "Tadoba-Andhari Tiger Reserve", distance: "115 km" },
+  { name: "Painganga Wildlife Sanctuary", distance: "112 km" },
+  { name: "Chaprala Wildlife Sanctuary", distance: "177 km" },
+];
 
-  useEffect(() => {
-    // Wait for refs to be assigned
-    if (
-      !sectionRef.current ||
-      !imageContainerRef.current ||
-      !titleRef.current ||
-      !leftColRef.current ||
-      !rightColRef.current
-    ) {
-      // Optional: Add a small delay or wait mechanism if refs aren't ready immediately,
-      // though useEffect with [] usually handles this well.
-      console.log("GSAP Refs not ready yet, retrying...");
-      const timeoutId = setTimeout(() => {
-        // Attempt re-initialization (simple example, might need refinement)
-        // Note: This recursive call inside setTimeout isn't ideal for production,
-        // better to rely on useEffect's timing or a state variable.
-        // For now, just log and proceed.
-        // setupAnimations(); // Be cautious with direct recursive calls
-      }, 100);
-      return () => clearTimeout(timeoutId); // Cleanup timeout
-      // For robustness, consider a state like [isReady, setIsReady]
-      // and only run GSAP when true.
-    }
-
-    // --- GSAP Animation Setup ---
-    const setupAnimations = () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%", // Animation starts when 75% of the section is visible from top
-          end: "bottom 80%", // Defines the scroll range for scrub/toggle actions if used
-          toggleActions: "play none none reverse", // Play on enter, reverse on scroll back up past start
-          // markers: true, // Uncomment ONLY for debugging trigger points
-        },
-      });
-
-      // 1. Animate Title (Gentle fade and slide down from top)
-      tl.from(titleRef.current, {
-        opacity: 1,
-        y: -30, // Start 30px above
-        duration: 0.8,
-        ease: "power3.out",
-      });
-
-      // 2. Animate Image Container (Scale up, fade in, slight organic rotation)
-      tl.from(
-        imageContainerRef.current,
-        {
-          opacity: 1,
-          scale: 0.85, // Start slightly smaller
-          rotation: -3, // Start slightly tilted counter-clockwise
-          duration: 1.2,
-          ease: "elastic.out(1, 0.7)", // Bouncy, natural feel
-        },
-        "-=0.5"
-      ); // Overlap start with title animation by 0.5s
-
-      // 3. Animate Left Column Items (Stagger slide from right, fade in)
-      tl.from(
-        leftColRef.current.children,
-        {
-          opacity: 1,
-          x: 50, // Start 50px to the right (moves left into view)
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.15, // Delay between each item's animation start
-        },
-        "-=0.8"
-      ); // Overlap start significantly with image animation
-
-      // 4. Animate Right Column Items (Stagger slide from left, fade in)
-      tl.from(
-        rightColRef.current.children,
-        {
-          opacity: 1,
-          x: -50, // Start 50px to the left (moves right into view)
-          duration: 0.6,
-          ease: "power2.out",
-          stagger: 0.15, // Stagger items
-        },
-        "<"
-      ); // "<" starts this tween at the exact same time the previous one (left column) starts
-
-      // Return the timeline instance for cleanup
-      return tl;
-    };
-
-    const timeline = setupAnimations();
-
-    // --- Cleanup function ---
-    return () => {
-      // Kill ScrollTrigger instance and the timeline when the component unmounts
-      // Important for preventing memory leaks in Next.js/React SPAs
-      if (timeline && timeline.scrollTrigger) {
-        timeline.scrollTrigger.kill();
-      }
-      if (timeline) {
-        timeline.kill();
-      }
-    };
-  }, []); // Empty dependency array ensures this runs only once after component mount
-
-  // Helper function to render each location item consistently
-  const renderLocationItem = (location, index, side) => (
-    <div
-      key={`${side}-${index}`}
-      // Initial visual state: invisible for GSAP 'from' animation
-      // Forest-themed styling: semi-transparent, blur, subtle green border/shadow
-      className="bg-forest-deep/90 backdrop-blur-sm p-4 rounded-lg border border-gold/20 shadow-md shadow-black/40 hover:shadow-lg hover:shadow-black/60 transition-shadow duration-300 opacity-0"
-    >
-      <div className="flex items-center justify-between space-x-3">
-        {/* Left part: Icon and Name */}
-        <div className="flex items-center space-x-3 overflow-hidden mr-2">
-          {" "}
-          {/* Added overflow-hidden + mr-2 */}
-          <location.icon
-            className="w-6 h-6 text-gold-light flex-shrink-0"
-            strokeWidth={1.75}
-            aria-hidden="true"
-          />
-          <span className="text-sm md:text-base text-linen truncate">
-            {" "}
-            {/* Added truncate */}
-            {location.name}
-          </span>
-        </div>
-        {/* Right part: Distances */}
-        <div className="text-right flex flex-col items-end flex-shrink-0 pl-2">
-          <span className="text-sm md:text-base font-medium text-gold-light whitespace-nowrap">
-            {" "}
-            {/* Prevent wrapping */}
-            {location.road}
-            <span className="text-[9px] text-bark-muted/80 hidden sm:inline ml-1">
-              {" "}
-              (Road)
-            </span>
-          </span>
-          {location.other && (
-            <span className="text-xs md:text-sm text-bark-muted/90 mt-1">
-              {location.other}
-            </span>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-
+export default function ForestDistanceSection() {
   return (
-    <section
-      ref={sectionRef}
-      // Forest-themed background gradient
-      className="bg-gradient-to-br from-[#0E1611] via-[#121C15] to-[#18251C] py-16 md:py-24 overflow-x-hidden" // overflow-x-hidden prevents scrollbars during slide animations
-    >
-      <div className="container mx-auto px-4">
-        {/* Section Title */}
-        <h2
-          ref={titleRef}
-          className="text-3xl md:text-4xl font-bold text-center text-gold-light mb-10 " // Start hidden
-        >
-          Your Forest Retreat Location
-        </h2>
-        <h3 className="mx-auto text-base md:text-xl font-bold text-center text-gold-light mb-2">
-          The nearest major town near the proposed site is Pandharkawda, at 9.1
-          Km.
-        </h3>
-        <h3 className="mx-auto text-base md:text-xl font-bold text-center text-gold-light mt-2 mb-10">
-          Pandharkawda is a City and a Municipal council in Yavatmal district of
-          the Vidarbha region in Maharashtra.
-        </h3>
+    <section className="relative py-24 md:py-32 overflow-hidden bg-cream">
+      <div
+        aria-hidden="true"
+        className="glow-orb w-[500px] h-[500px] -bottom-64 -left-40"
+        style={{ background: "radial-gradient(circle, rgba(46,74,58,0.4), transparent 70%)" }}
+      />
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <p className="eyebrow text-gold uppercase tracking-[0.3em] text-sm font-medium mb-5">
+            Getting Here
+          </p>
+          <h2 className="text-4xl md:text-6xl font-serif font-light text-forest mb-6">
+            Your Retreat <span className="gradient-text font-semibold">Awaits</span>
+          </h2>
+          <p className="text-bark-muted text-lg leading-relaxed">
+            Reachable from Nagpur in under three hours, the retreat sits at the
+            edge of the Tipeshwar Wildlife Sanctuary — close enough for an
+            escape, far enough to be truly away.
+          </p>
+        </div>
 
-        {/* Main Layout Grid: Flex column on mobile, row on medium screens+ */}
-        <div className="flex flex-col md:flex-row md:items-start md:space-x-6 lg:space-x-10 mb-10">
-          {/* Left Column (Distances) */}
-          <div
-            ref={leftColRef}
-            className="w-full md:w-1/4 space-y-4 md:space-y-5 order-2 md:order-1 mb-8 md:mb-0"
-          >
-            {leftLocations.map((loc, index) =>
-              renderLocationItem(loc, index, "left")
-            )}
-          </div>
-
-          {/* Center Image Column */}
-          <div
-            ref={imageContainerRef}
-            className="w-full md:w-1/2 flex justify-center items-start md:items-center order-1 md:order-2 mb-8 md:mb-0 px-0 sm:px-4 opacity-0"
-          >
-            {" "}
-            {/* Start hidden, adjust padding */}
-            {/* Image Container: Controls size, aspect ratio, shadow, border */}
-            <div className="relative w-full max-w-md lg:max-w-lg aspect-[4/3] rounded-xl shadow-xl shadow-green-600/30 overflow-hidden border-4 border-white/50">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-center mb-20">
+          <div className="lg:col-span-2">
+            <div className="cinematic relative aspect-[4/5] rounded-3xl overflow-hidden border border-gold/25 shadow-2xl">
               <Image
-                src="/green-forest-scenes.png" // Ensure this path is correct relative to /public
-                alt="Beautiful green forest pathway with sunlight"
-                layout="fill" // Makes image fill the container div
-                objectFit="cover" // Scales image to cover container, cropping if needed
-                quality={85} // Image quality (0-100)
-                priority // Load image sooner if it's critical / above the fold initially
-                className="transform transition-transform duration-500 hover:scale-105" // Subtle zoom on hover
+                src="/green-forest-scenes.png"
+                alt="Forest pathway leading into Tipeshwar"
+                fill
+                className="object-cover"
               />
+              <div className="absolute bottom-5 left-5 right-5">
+                <div className="bg-forest-deep/80 backdrop-blur-sm rounded-2xl border border-gold/25 px-5 py-4">
+                  <p className="flex items-center gap-2 text-gold-light text-sm font-medium">
+                    <MapPin size={16} />
+                    Tipeshwar Wildlife Sanctuary, Maharashtra
+                  </p>
+                  <p className="text-linen/70 text-xs mt-1">
+                    Gate opens with the forest at dawn
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right Column (Distances) */}
-          <div
-            ref={rightColRef}
-            className="w-full md:w-1/4 space-y-4 md:space-y-5 order-3 md:order-3"
-          >
-            {rightLocations.map((loc, index) =>
-              renderLocationItem(loc, index, "right")
-            )}
-          </div>
-        </div>
-
-        <div>
-          <h4 className="text-center text-gold-light mt-2 mb-10 text-[15px]">
-            Cities / towns within Driving distance: <b>Maharashtra</b>
-          </h4>
-          <div className="flex justify-center">
-            <div className="bg-forest-deep/90 backdrop-blur-sm p-4 rounded-lg border border-gold/20 shadow-md shadow-black/40 hover:shadow-lg hover:shadow-black/60 transition-shadow duration-300 md:w-[400px] grid grid-cols-2 gap-5">
-              <ul>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Ralegaon - 65.8 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Yavatmal - 78.3 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Wardha - 102 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Chandrapur - 106 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Chimur - 123 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Nagpur - 150 Km
-                </li>
-              </ul>
-              <ul>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Amrawati - 173 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Nanded - 220 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Akola - 237 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Gondia - 293 Km
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Adilabad - 54.3 Km(Telangana)
-                </li>
-                <li className="mb-2 text-bark-light text-[12px]">
-                  Durg - 374 Km(Chattisgarh)
-                </li>
-              </ul>
+          <div className="lg:col-span-3">
+            <div className="divide-y divide-gold/15 border-y border-gold/15">
+              {JOURNEYS.map((journey) => (
+                <div key={journey.label} className="flex items-start gap-5 py-6">
+                  <span className="w-12 h-12 flex items-center justify-center rounded-full bg-gold-tint border border-gold/25 flex-shrink-0">
+                    <journey.icon className="text-gold-light" size={20} />
+                  </span>
+                  <div className="flex-1">
+                    <p className="text-xs uppercase tracking-[0.25em] text-gold mb-1">
+                      {journey.label}
+                    </p>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-xl md:text-2xl font-serif text-forest">
+                        {journey.title}
+                      </h3>
+                      <span className="text-sm text-gold whitespace-nowrap font-medium">
+                        {journey.distance}
+                      </span>
+                    </div>
+                    <p className="text-bark-muted mt-1">{journey.detail}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Optional Disclaimer Note */}
-        <p className="text-xs text-bark-muted/70 mt-12 text-center">
-          *All distances and times are approximate. Enjoy exploring!
-        </p>
+        <div className="grid md:grid-cols-2 gap-10">
+          <div className="glass rounded-3xl p-8">
+            <p className="eyebrow-start text-gold uppercase tracking-[0.25em] text-xs font-medium mb-6">
+              Wildlife Reserves Nearby
+            </p>
+            <div className="space-y-4">
+              {RESERVES.map((reserve) => (
+                <div
+                  key={reserve.name}
+                  className="flex items-baseline justify-between gap-4 border-b border-gold/10 pb-3 last:border-0 last:pb-0"
+                >
+                  <span className="font-serif text-lg text-linen">
+                    {reserve.name}
+                  </span>
+                  <span className="text-sm text-gold-light whitespace-nowrap">
+                    {reserve.distance}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass rounded-3xl p-8">
+            <p className="eyebrow-start text-gold uppercase tracking-[0.25em] text-xs font-medium mb-6">
+              Driving Distances
+            </p>
+            <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+              {TOWNS.map((town) => (
+                <div
+                  key={town.name}
+                  className="flex items-baseline justify-between gap-3 border-b border-gold/10 pb-2"
+                >
+                  <span className="text-bark-light text-sm">{town.name}</span>
+                  <span className="text-gold-light text-xs whitespace-nowrap">
+                    {town.distance}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
-
-export default ForestDistanceSection;

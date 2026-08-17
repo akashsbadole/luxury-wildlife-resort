@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -45,8 +46,14 @@ export function ContactForm() {
 
       setSubmitStatus("success");
       reset();
+      toast.success("Message sent", {
+        description: "Thank you — our team will be in touch shortly.",
+      });
     } catch {
       setSubmitStatus("error");
+      toast.error("Could not send message", {
+        description: "Please try again in a moment.",
+      });
     } finally {
       setIsSubmitting(false);
     }
