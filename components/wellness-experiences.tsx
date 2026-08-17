@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { gsap } from "gsap"
-import { useGSAP } from "@gsap/react"
-import Image from "next/image"
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 import {
   Sprout,
   Bird,
@@ -13,7 +13,7 @@ import {
   HeartHandshake,
   Leaf,
   Flower2,
-} from "lucide-react"
+} from "lucide-react";
 
 const wellness = [
   {
@@ -34,7 +34,7 @@ const wellness = [
     description:
       "Open-air practice at dawn and dusk, framed by canopy and birdsong.",
   },
-]
+];
 
 const experiences = [
   {
@@ -67,10 +67,10 @@ const experiences = [
     description:
       "Hugging the Muchi Dam spillway and reservoir for uninterrupted views.",
   },
-]
+];
 
 export function WellnessExperiences() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
 
   useGSAP(
     () => {
@@ -84,8 +84,8 @@ export function WellnessExperiences() {
           duration: 0.9,
           ease: "power3.out",
           scrollTrigger: { trigger: ".wellness-grid", start: "top 75%" },
-        }
-      )
+        },
+      );
       gsap.fromTo(
         ".experience-card",
         { y: 60, opacity: 0 },
@@ -96,11 +96,11 @@ export function WellnessExperiences() {
           duration: 0.9,
           ease: "power3.out",
           scrollTrigger: { trigger: ".experience-grid", start: "top 75%" },
-        }
-      )
+        },
+      );
     },
-    { scope: sectionRef }
-  )
+    { scope: sectionRef },
+  );
 
   return (
     <section
@@ -116,7 +116,7 @@ export function WellnessExperiences() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-forest-deep/80" />
+        <div className="absolute inset-0 shadow bg-[#0000005c]" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -128,8 +128,8 @@ export function WellnessExperiences() {
             Stillness, Then <span className="text-gold-light">Wonder</span>
           </h2>
           <p className="text-linen/80 animate-in leading-relaxed">
-            Begin with restoration, wander into the wild. Two rhythms of a single
-            forest — one to soften the body, one to awaken the spirit.
+            Begin with restoration, wander into the wild. Two rhythms of a
+            single forest — one to soften the body, one to awaken the spirit.
           </p>
         </div>
 
@@ -174,5 +174,5 @@ export function WellnessExperiences() {
         </div>
       </div>
     </section>
-  )
+  );
 }
