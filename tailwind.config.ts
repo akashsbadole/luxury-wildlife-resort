@@ -43,6 +43,29 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        cream: {
+          DEFAULT: "#FBF8F2",
+          deep: "#EDE8DE",
+          warm: "#E8DFD0",
+        },
+        forest: {
+          DEFAULT: "#3d5a47",
+          deep: "#1a2f1a",
+          mid: "#2d5a27",
+          muted: "#2e4336",
+        },
+        bark: {
+          DEFAULT: "#2c2820",
+          light: "#3a322a",
+          muted: "#5a5248",
+        },
+        gold: {
+          DEFAULT: "#a4793f",
+          light: "#D4B483",
+          tint: "#f5e9d4",
+          hover: "#8d6232",
+          pressed: "#6e4d27",
+        },
         amber: {
           50: "#fffbeb",
           100: "#fef3c7",
@@ -57,6 +80,10 @@ const config: Config = {
           950: "#451a03",
         },
       },
+      fontFamily: {
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -65,6 +92,30 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "fade-in": "fade-in 0.8s ease-out",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
       },
     },
   },

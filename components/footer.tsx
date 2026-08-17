@@ -1,30 +1,49 @@
+"use client";
+
+import { triggerSectionTransition } from "./section-transition";
+
+const QUICK_LINKS = [
+  { label: "Home", id: "home" },
+  { label: "Suites", id: "suites" },
+  { label: "Dining", id: "dining" },
+  { label: "Wellness", id: "wellness" },
+  { label: "Booking", id: "booking" },
+  { label: "Contact", id: "contact" },
+];
+
+const POLICIES = [
+  "Privacy Policy",
+  "Terms & Conditions",
+  "Cancellation Policy",
+  "FAQ",
+];
+
 export function Footer() {
   return (
     <footer
-      className="relative py-12 md:py-16 border-t border-amber-900/30 "
+      className="relative py-12 md:py-16 border-t border-gold/20 bg-forest-deep text-white"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/tropical-leaves.png')",
+          "linear-gradient(rgba(26, 47, 26, 0.95), rgba(26, 47, 26, 0.95)), url('/tropical-leaves.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        position: "relative",
       }}
     >
-      <div className="container mx-auto px-4 md:px-6 relative z-10 ">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-bold text-[#00ff00] mb-4">
-              WILDLUXURY
+            <h3 className="text-xl font-serif font-semibold text-gold-light mb-4">
+              TIPESHWAR
             </h3>
-            <p className="text-[#fff8f0] mb-4">
-              Where luxury meets wilderness. Experience nature like never before
-              in our exclusive resort.
+            <p className="text-cream/70 mb-4 leading-relaxed">
+              A luxury forest hotel where wilderness meets refined comfort.
+              Experience nature like never before in our exclusive retreat.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-[#fff8f0] hover:text-amber-300 transition-colors"
+                className="text-cream/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -42,7 +61,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="text-[#fff8f0] hover:text-amber-300 transition-colors"
+                className="text-cream/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -60,7 +79,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="text-[#fff8f0] hover:text-amber-300 transition-colors"
+                className="text-cream/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -76,109 +95,57 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">
+            <h4 className="text-lg font-serif font-semibold text-gold-light mb-4">
               Quick Links
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Accommodations
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Experiences
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
+              {QUICK_LINKS.map((item) => (
+                <li key={item.id}>
+                  <button
+                    onClick={() => triggerSectionTransition(item.id)}
+                    className="text-cream/80 hover:text-gold transition-colors duration-300"
+                  >
+                    {item.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">
+            <h4 className="text-lg font-serif font-semibold text-gold-light mb-4">
               Policies
             </h4>
             <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  Cancellation Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-[#fff8f0]-400/80 hover:text-green-900 transition-colors"
-                >
-                  FAQ
-                </a>
-              </li>
+              {POLICIES.map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="text-cream/80 hover:text-gold transition-colors duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-[#00ff00] mb-4">
+            <h4 className="text-lg font-serif font-semibold text-gold-light mb-4">
               Newsletter
             </h4>
-            <p className="text-[#fff8f0] mb-4">
+            <p className="text-cream/80 mb-4">
               Subscribe to receive updates on special offers and events.
             </p>
-            <form className="space-y-2">
+            <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full bg-black/30 border border-amber-900/50 rounded-lg px-4 py-2 text-[#00ff00] focus:outline-none focus:border-amber-500/70"
+                className="w-full bg-cream/10 border border-gold/30 rounded-lg px-4 py-2 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold transition-colors duration-300"
               />
               <button
                 type="submit"
-                className="w-full py-2 bg-amber-700 hover:bg-amber-600 text-[#fff8f0] rounded-lg transition-colors"
+                className="w-full py-2 btn-gold rounded-lg font-medium"
               >
                 Subscribe
               </button>
@@ -186,9 +153,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-amber-900/30 pt-8 text-center">
-          <p className="text-[#fff8f0]-200/60">
-            &copy; {new Date().getFullYear()} Tipeshwar WILDLUXURY Resort. All
+        <div className="border-t border-gold/20 pt-8 text-center">
+          <p className="text-cream/50">
+            &copy; {new Date().getFullYear()} Tipeshwar Forest Retreat. All
             rights reserved.
           </p>
         </div>

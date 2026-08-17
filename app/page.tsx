@@ -9,18 +9,19 @@ import { Loader } from "@/components/loader";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
-// import { ImageGallery } from "@/components/ImageGallery";
 import { ContentSection } from "@/components/ContentSection";
 import { Accommodations } from "@/components/accommodations";
-import { Experience } from "@/components/experience";
+import { Dining } from "@/components/dining";
+import { WellnessExperiences } from "@/components/wellness-experiences";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
+import { SectionTransition } from "@/components/section-transition";
+import { Booking } from "@/components/booking";
 import DistanceSection from "@/components/address";
 import TouristAttractionsSection from "@/components/TouristAttractionsSection";
 import WhyChooseUs from "@/components/WhyChoose";
 import InvestorSection from "@/components/InvestorSection";
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const contentSections = [
@@ -28,7 +29,7 @@ const contentSections = [
     title: "Immerse in Nature",
     subtitle: "Where Wilderness Meets Comfort",
     description:
-      "Experience the thrill of the wild while enjoying world-class amenities. Our resort seamlessly blends into the natural landscape, offering you an authentic wildlife experience without compromising on luxury.",
+      "Experience the thrill of the wild while enjoying world-class amenities. Our retreat seamlessly blends into the natural landscape, offering you an authentic forest experience without compromising on luxury.",
     image: "/images/tourist-place-images.png",
     imageAlt: "Peacock in Forest",
   },
@@ -36,7 +37,7 @@ const contentSections = [
     title: "Luxurious Stays",
     subtitle: "Comfort in the Wild",
     description:
-      "Our carefully designed accommodations offer the perfect retreat after a day of adventure. Each room provides stunning views of the surrounding wilderness while ensuring your utmost comfort.",
+      "Our carefully designed suites offer the perfect retreat after a day of adventure. Each room provides stunning views of the surrounding wilderness while ensuring your utmost comfort.",
     image: "/images/Land-Image-1.jpg",
     imageAlt: "Luxury Forest View",
     reverse: true,
@@ -56,16 +57,12 @@ export default function Home() {
   const mainRef = useRef(null);
 
   useGSAP(() => {
-    // Initialize scroll animations for sections
     const sections = document.querySelectorAll("section");
 
     sections.forEach((section) => {
       gsap.fromTo(
         section.querySelectorAll(".animate-in"),
-        {
-          y: 50,
-          opacity: 0,
-        },
+        { y: 40, opacity: 0 },
         {
           y: 0,
           opacity: 1,
@@ -74,39 +71,38 @@ export default function Home() {
           ease: "power3.out",
           scrollTrigger: {
             trigger: section,
-            start: "top 70%",
+            start: "top 75%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     });
 
-    // Parallax effects for images
     document.querySelectorAll(".parallax-img").forEach((img) => {
       gsap.to(img, {
-        yPercent: -20,
+        yPercent: -15,
         ease: "none",
         scrollTrigger: {
           trigger: img,
           start: "top bottom",
           end: "bottom top",
-          scrub: true,
+          scrub: 1.2,
         },
       });
     });
   }, []);
 
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <main ref={mainRef} className="relative bg-black">
+    <main ref={mainRef} className="relative bg-cream">
+      <SectionTransition />
       {isLoading ? (
         <Loader />
       ) : (
@@ -115,15 +111,16 @@ export default function Home() {
           <Hero />
           <About />
           <Accommodations />
-          <Experience />
-          {/* <ImageGallery /> */}
+          <Dining />
+          <WellnessExperiences />
           {contentSections.map((section, index) => (
             <ContentSection key={index} {...section} />
           ))}
-          <DistanceSection />
-          <TouristAttractionsSection />
           <WhyChooseUs />
+          <TouristAttractionsSection />
+          <DistanceSection />
           <InvestorSection />
+          {/* <Booking /> */}
           <Contact />
           <Footer />
         </>

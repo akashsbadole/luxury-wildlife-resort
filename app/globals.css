@@ -3,64 +3,153 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 10, 31, 10;
-  --background-end-rgb: 3, 12, 10;
+  /* Warm Earth-Tone Palette */
+  --color-cream: #FBF8F2;
+  --color-cream-deep: #EDE8DE;
+  --color-cream-warm: #E8DFD0;
+  --color-forest-deep: #1a2f1a;
+  --color-forest: #3d5a47;
+  --color-forest-mid: #2d5a27;
+  --color-bark: #2c2820;
+  --color-bark-light: #3a322a;
+  --color-bark-muted: #5a5248;
+  --color-gold: #a4793f;
+  --color-gold-light: #D4B483;
+  --color-gold-tint: #f5e9d4;
+  --color-gold-hover: #8d6232;
+  --color-border-warm: #c8bfb0;
+
+  --foreground-rgb: 44, 40, 32;
+  --background-start-rgb: 251, 248, 242;
+  --background-end-rgb: 237, 232, 222;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb))) fixed;
+  background: linear-gradient(
+    to bottom,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - warm gold theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(237, 232, 222, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(217, 119, 6, 0.5);
+  background: rgba(164, 121, 63, 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(217, 119, 6, 0.7);
+  background: rgba(164, 121, 63, 0.7);
 }
 
-/* Gradient text animation */
+/* Subtle gold gradient text for accents */
 .gradient-text {
-  background: linear-gradient(
-    45deg,
-    #00ff00 0%,
-    #004225 25%,
-    #00ff0091 50%,
-    #77dd77 75%,
-    #77dd77 100%
-  );
+  background: linear-gradient(45deg, #a4793f, #d4b483, #a4793f);
   -webkit-background-clip: text;
   background-clip: text;
-  color: #77dd77;
-  text-shadow: 2px 2px 4px #000
-               0 0 30px #77dd77;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-/* Add animation only after hydration */
-.gradient-text.animated {
   color: transparent;
-  animation: textShimmer 6s linear infinite;
 }
 
-@keyframes textShimmer {
-  0% {
-    background-position: -200% 0;
+/* Navigation underline animation */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #a4793f;
+  transition: width 0.5s ease-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Card hover effects */
+.card-luxury {
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.card-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(44, 40, 32, 0.15);
+}
+
+/* Button hover effects */
+.btn-gold {
+  background: #a4793f;
+  color: #fbf8f2;
+  transition: all 0.3s ease-out;
+}
+
+.btn-gold:hover {
+  background: #8d6232;
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(164, 121, 63, 0.3);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #a4793f;
+  outline-offset: 2px;
+}
+
+/* Image hover zoom */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.7s ease-out;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Section fade wrapper */
+.section-fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  100% {
-    background-position: 200% 0;
+
+  .parallax-bg,
+  .parallax-mid,
+  .parallax-fg {
+    transform: none !important;
   }
 }

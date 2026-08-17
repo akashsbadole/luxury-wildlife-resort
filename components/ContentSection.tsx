@@ -29,7 +29,6 @@ export function ContentSection({
 
   useEffect(() => {
     if (sectionRef.current && titleRef.current) {
-      // Create spans for each word in the title
       const words = title
         .split(" ")
         .map((word) => `<span class="inline-block">${word}</span>`)
@@ -38,14 +37,9 @@ export function ContentSection({
         titleRef.current.innerHTML = words;
       }
 
-      // Animate each word
       gsap.fromTo(
         titleRef.current.querySelectorAll("span"),
-        {
-          opacity: 0,
-          y: 50,
-          rotateX: -90,
-        },
+        { opacity: 0, y: 50, rotateX: -90 },
         {
           opacity: 1,
           y: 0,
@@ -62,13 +56,9 @@ export function ContentSection({
         }
       );
 
-      // Content animation
       gsap.fromTo(
         sectionRef.current.querySelector(".content-animate"),
-        {
-          opacity: 0,
-          y: 50,
-        },
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
           y: 0,
@@ -85,7 +75,6 @@ export function ContentSection({
         }
       );
 
-      // Image animation
       gsap.from(sectionRef.current.querySelector(".image-animate"), {
         opacity: 1,
         x: reverse ? 50 : -50,
@@ -105,28 +94,32 @@ export function ContentSection({
   return (
     <section ref={sectionRef} className="py-6 md:py-0 overflow-hidden">
       <div
-        className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center bg-[#053c36] ${
-          reverse
-            ? "direction-rtl bg-gradient-to-br from-emerald-50 via-green-100/80 to-lime-100 px-0"
-            : ""
-        }`}
+        className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center ${
+          reverse ? "bg-cream-deep" : "bg-forest-deep"
+        } rounded-2xl overflow-hidden`}
       >
-        <div className={`space-y-6 px-5 ${reverse ? "md:order-2" : ""} `}>
+        <div className={`space-y-6 px-5 py-8 ${reverse ? "md:order-2" : ""}`}>
           <h2
             ref={titleRef}
-            className="text-4xl md:text-5xl font-bold text-[#00ff00] perspective-1000"
+            className={`text-4xl md:text-5xl font-serif font-semibold perspective-1000 ${
+              reverse ? "text-forest" : "text-cream"
+            }`}
           >
             {title}
           </h2>
           <div className="content-animate">
             <h3
               className={`${
-                reverse ? "text-black " : "text-white"
-              } text-xl md:text-2xl font-semibold mb-4 `}
+                reverse ? "text-bark" : "text-cream"
+              } text-xl md:text-2xl font-serif font-medium mb-4`}
             >
               {subtitle}
             </h3>
-            <p className={`${reverse ? "text-black " : "text-white"} text-lg `}>
+            <p
+              className={`${
+                reverse ? "text-bark-muted" : "text-cream/80"
+              } text-lg leading-relaxed`}
+            >
               {description}
             </p>
           </div>
@@ -141,7 +134,7 @@ export function ContentSection({
             src={image}
             alt={imageAlt}
             fill
-            className="object-contain rounded-2xl"
+            className="object-cover rounded-2xl img-hover-zoom"
           />
         </div>
       </div>

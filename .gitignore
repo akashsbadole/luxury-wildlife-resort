@@ -27,3 +27,11 @@ yarn-error.log*
 next-env.d.ts
 
 .kilo
+
+.opencode
+AGENTS.md
+opencode.json
+.AGENTS
+/hooks
+scripts
+skills

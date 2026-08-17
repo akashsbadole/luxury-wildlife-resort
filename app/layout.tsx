@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,25 +21,26 @@ async function getMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(`https://${host}`),
-    title: "Luxury Wildlife Retreat | Premium Nature Experience",
+    title: "Tipeshwar | Luxury Forest Hotel & Retreat",
     description:
-      "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
-    keywords: [
-      "luxury wildlife retreat",
-      "nature experience",
-      "premium accommodations",
-      "wildlife sanctuary",
-      "eco-tourism",
-      "luxury cabins",
-      "forest retreat",
-    ],
+      "A luxury forest hotel where wilderness meets refined comfort. Discover suites, forest-to-table dining, wellness, and curated wildlife experiences in Maharashtra.",
+      keywords: [
+        "luxury forest hotel",
+        "forest retreat",
+        "nature experience",
+        "premium suites",
+        "forest dining",
+        "wellness retreat",
+        "wildlife sanctuary maharashtra",
+        "eco-tourism",
+      ],
     authors: [{ name: "Luxury Wildlife Retreat" }],
     openGraph: {
-      title: "Luxury Wildlife Retreat | Premium Nature Experience",
+      title: "Tipeshwar | Luxury Forest Hotel & Retreat",
       description:
-        "Experience luxury in the heart of nature. Our premium wildlife retreat offers unique accommodations, breathtaking views, and unforgettable experiences in the wilderness.",
+        "A luxury forest hotel where wilderness meets refined comfort. Discover suites, forest-to-table dining, wellness, and curated wildlife experiences in Maharashtra.",
       url: new URL(`https://${host}`),
-      siteName: "Luxury Wildlife Retreat",
+      siteName: "Tipeshwar Forest Retreat",
       images: [
         {
           url: "/og-image.jpg",
@@ -73,7 +81,7 @@ export default async function RootLayout({
   const metadata = await getMetadata();
 
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body className="font-sans" suppressHydrationWarning>
         {children}
       </body>
