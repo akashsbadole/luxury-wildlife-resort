@@ -135,13 +135,13 @@ const LuxuryJungleResort: React.FC = () => {
       <div className="relative z-10 container mx-auto px-6 py-24 md:py-36">
         {/* Header Section */}
         <div ref={headerRef} className="text-center max-w-4xl mx-auto mb-24">
-          <h3 className="text-amber-400 font-semibold text-xl mb-3 uppercase tracking-wider">
+          <h3 className="text-gold-light font-semibold text-xl mb-3 uppercase tracking-wider">
             Experience Nature's Luxury
           </h3>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8">
             WHY TIPESHWAR? WHY NOW?
           </h2>
-          <div className="w-32 h-1 bg-amber-400 mx-auto mb-8"></div>
+          <div className="w-32 h-1 bg-gold-light mx-auto mb-8"></div>
           <p className="text-gray-100 text-lg md:text-xl mb-5 leading-relaxed">
             Although in close proximity to some of the most popular wildlife
             tourist destinations of India, Tipeshwar remains largely
@@ -155,7 +155,7 @@ const LuxuryJungleResort: React.FC = () => {
             <Link href="https://maps.app.goo.gl/6AaPE4krBMeySdEd6">
               <span className="text-gray-200 mx-auto">
                 <span>
-                  <MapPin className="text-amber-400 " size={20} />
+                  <MapPin className="text-gold-light " size={20} />
                 </span>
                 Nestled in the Tipeshwar Wildlife Sanctuary, Tipeshwar,
                 Maharashtra
@@ -178,7 +178,7 @@ const LuxuryJungleResort: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Earth-crafted Cottages & Village Integration
                 </h3>
-                <div className="w-16 h-1 bg-amber-400"></div>
+                <div className="w-16 h-1 bg-gold-light"></div>
               </div>
             </div>
             <div className="p-6">
@@ -189,13 +189,13 @@ const LuxuryJungleResort: React.FC = () => {
               </p>
               <div className="flex items-center space-x-6">
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Waves className="text-amber-400" size={20} />
+                  <Waves className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Mountain className="text-amber-400" size={20} />
+                  <Mountain className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Wifi className="text-amber-400" size={20} />
+                  <Wifi className="text-gold-light" size={20} />
                 </div>
               </div>
             </div>
@@ -213,7 +213,7 @@ const LuxuryJungleResort: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Wellness Spaces
                 </h3>
-                <div className="w-16 h-1 bg-amber-400"></div>
+                <div className="w-16 h-1 bg-gold-light"></div>
               </div>
             </div>
             <div className="p-6">
@@ -222,13 +222,13 @@ const LuxuryJungleResort: React.FC = () => {
               </p>
               <div className="flex items-center space-x-6">
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <BookA className="text-amber-400" size={20} />
+                  <BookA className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Waves className="text-amber-400" size={20} />
+                  <Waves className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Wifi className="text-amber-400" size={20} />
+                  <Wifi className="text-gold-light" size={20} />
                 </div>
               </div>
             </div>
@@ -246,7 +246,7 @@ const LuxuryJungleResort: React.FC = () => {
                 <h3 className="text-2xl font-bold text-white mb-2">
                   Nature Immersion
                 </h3>
-                <div className="w-16 h-1 bg-amber-400"></div>
+                <div className="w-16 h-1 bg-gold-light"></div>
               </div>
             </div>
             <div className="p-6">
@@ -255,13 +255,13 @@ const LuxuryJungleResort: React.FC = () => {
               </p>
               <div className="flex items-center space-x-6">
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <UtensilsCrossed className="text-amber-400" size={20} />
+                  <UtensilsCrossed className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Mountain className="text-amber-400" size={20} />
+                  <Mountain className="text-gold-light" size={20} />
                 </div>
                 <div className="feature-icon flex items-center justify-center w-12 h-12 rounded-full bg-emerald-800/50 border border-emerald-600/30">
-                  <Wifi className="text-amber-400" size={20} />
+                  <Wifi className="text-gold-light" size={20} />
                 </div>
               </div>
             </div>
@@ -273,7 +273,7 @@ const LuxuryJungleResort: React.FC = () => {
           className="relative max-w-3xl mx-auto text-center py-12 px-8 rounded-2xl overflow-hidden"
           ref={addToRefs}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-700/90 to-amber-700/90 backdrop-blur-md"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-forest-deep/95 to-gold/40 backdrop-blur-md"></div>
           <div className="absolute inset-0 bg-[url('/images/forest-scene.jpg')] opacity-10 mix-blend-overlay"></div>
           <div className="relative z-10">
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -304,7 +304,7 @@ const LuxuryJungleResort: React.FC = () => {
               href="/pdf/Resort-Proposal_low-resolution.pdf"
               target="_blank"
               download
-              className="group inline-flex items-center bg-amber-500 text-emerald-900 font-medium px-8 py-4 rounded-full hover:bg-amber-400 transition-all duration-300 transform hover:scale-105"
+              className="group inline-flex items-center btn-gold text-white font-medium px-8 py-4 rounded-full hover:bg-gold-light transition-all duration-300 transform hover:scale-105"
             >
               Download Pdf
               <ChevronRight
@@ -318,7 +318,7 @@ const LuxuryJungleResort: React.FC = () => {
 
       {/* Background Effects */}
       <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/40 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/20 rounded-full filter blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/20 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-600/20 rounded-full filter blur-3xl"></div>
     </section>
   );

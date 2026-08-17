@@ -57,7 +57,7 @@ export function Accommodations() {
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
+          <p className="eyebrow text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Suites
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">

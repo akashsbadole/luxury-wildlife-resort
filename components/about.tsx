@@ -13,7 +13,7 @@ export function About() {
         <div className="relative z-10 bg-forest-deep/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-6xl mx-auto shadow-lg border border-gold/20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
+              <p className="eyebrow-start text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
                 The Sanctuary
               </p>
               <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">

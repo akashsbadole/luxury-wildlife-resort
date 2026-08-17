@@ -84,25 +84,61 @@ body {
 
 /* Card hover effects */
 .card-luxury {
-  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out,
+    border-color 0.4s ease-out;
 }
 
 .card-luxury:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(212, 180, 131, 0.5);
 }
 
 /* Button hover effects */
 .btn-gold {
-  background: #a4793f;
+  background: linear-gradient(135deg, #a4793f, #c89a5b);
   color: #fbf8f2;
   transition: all 0.3s ease-out;
+  box-shadow: 0 4px 14px rgba(164, 121, 63, 0.25);
 }
 
 .btn-gold:hover {
-  background: #8d6232;
+  background: linear-gradient(135deg, #8d6232, #b1833f);
   transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(164, 121, 63, 0.3);
+  box-shadow: 0 8px 24px rgba(164, 121, 63, 0.45);
+}
+
+/* Section eyebrow with gold flanking rules */
+.eyebrow,
+.eyebrow-start {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  justify-content: center;
+}
+
+.eyebrow::before,
+.eyebrow::after,
+.eyebrow-start::before {
+  content: "";
+  height: 1px;
+  width: 2.5rem;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 180, 131, 0.8)
+  );
+}
+
+.eyebrow::after {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 180, 131, 0.8),
+    transparent
+  );
 }
 
 /* Focus styles for accessibility */

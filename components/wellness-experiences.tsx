@@ -121,7 +121,7 @@ export function WellnessExperiences() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <p className="text-gold-light uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
+          <p className="eyebrow text-gold-light uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Wellness & Experiences
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-linen mb-6 animate-in">
