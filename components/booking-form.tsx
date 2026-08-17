@@ -155,7 +155,7 @@ export function BookingForm() {
             <button
               type="button"
               onClick={() => setGuests((g) => Math.max(1, g - 1))}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-gold-tint text-forest hover:bg-gold hover:text-cream transition-colors duration-300"
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-gold-tint text-forest hover:bg-gold hover:text-linen transition-colors duration-300"
               aria-label="Decrease guests"
             >
               <Minus className="w-4 h-4" />
@@ -164,7 +164,7 @@ export function BookingForm() {
             <button
               type="button"
               onClick={() => setGuests((g) => Math.min(12, g + 1))}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-gold-tint text-forest hover:bg-gold hover:text-cream transition-colors duration-300"
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-gold-tint text-forest hover:bg-gold hover:text-linen transition-colors duration-300"
               aria-label="Increase guests"
             >
               <Plus className="w-4 h-4" />
@@ -215,7 +215,7 @@ export function BookingForm() {
         )}
       </form>
 
-      <div className="bg-white rounded-2xl p-6 border border-border-warm/30 shadow-lg">
+      <div className="bg-cream-warm rounded-2xl p-6 border border-gold/20 shadow-lg">
         <div className="flex items-center gap-2 text-forest mb-4">
           <CalendarDays className="w-5 h-5" />
           <h3 className="font-serif text-lg font-semibold">Your Stay</h3>

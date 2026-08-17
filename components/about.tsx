@@ -10,7 +10,7 @@ export function About() {
       className="relative py-24 md:py-32 overflow-hidden bg-cream-deep"
     >
       <div className="container mx-auto px-4 md:px-6">
-        <div className="relative z-10 bg-white/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-6xl mx-auto shadow-lg border border-border-warm/30">
+        <div className="relative z-10 bg-forest-deep/70 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-6xl mx-auto shadow-lg border border-gold/20">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
@@ -53,7 +53,7 @@ export function About() {
             </div>
 
             <EdgeHoverEffect className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden animate-in shadow-xl img-hover-zoom">
-              <div className="absolute inset-0 bg-gradient-to-t from-bark/40 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
               <Image
                 src="/images/Image-One.jpg"
                 alt="Luxury cabin in the forest"

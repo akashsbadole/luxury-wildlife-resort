@@ -164,8 +164,8 @@ const InvestorSection: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-16">
-          <div className="inline-block mb-4 px-3 py-1 bg-purple-900/30 rounded-lg border border-purple-500/20">
-            <span className="text-purple-300 text-sm tracking-wider">
+          <div className="inline-block mb-4 px-3 py-1 bg-gold/10 rounded-lg border border-gold/20">
+            <span className="text-gold-light text-sm tracking-wider">
               INVESTMENT OPPORTUNITY
             </span>
           </div>
@@ -195,7 +195,7 @@ const InvestorSection: React.FC = () => {
           <div
             ref={addToRefs}
             data-animation="line"
-            className="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent mb-6"
+            className="h-px bg-gradient-to-r from-transparent via-gold to-transparent mb-6"
           ></div>
           <p className="text-gray-300">
             Our approach emphasizes design sensitivity that allows for
@@ -223,14 +223,14 @@ const InvestorSection: React.FC = () => {
             className="max-w-2xl mx-auto p-6 bg-white/5 rounded-lg border border-white/10"
           >
             <h4 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <span className="inline-flex items-center justify-center w-7 h-7 mr-2 rounded-full bg-purple-600 text-white">
+              <span className="inline-flex items-center justify-center w-7 h-7 mr-2 rounded-full bg-gold text-white">
                 <Users size={14} />
               </span>
               REQUIREMENT
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <ChevronRight className="text-purple-400 mt-1" size={16} />
+                <ChevronRight className="text-gold-light mt-1" size={16} />
                 <p className="text-gray-300 ml-2">
                   <span className="text-white font-medium">
                     Interested buyers
@@ -239,7 +239,7 @@ const InvestorSection: React.FC = () => {
                 </p>
               </li>
               <li className="flex items-start">
-                <ChevronRight className="text-purple-400 mt-1" size={16} />
+                <ChevronRight className="text-gold-light mt-1" size={16} />
                 <p className="text-gray-300 ml-2">
                   <span className="text-white font-medium">
                     Strategic partners
@@ -248,7 +248,7 @@ const InvestorSection: React.FC = () => {
                 </p>
               </li>
               <li className="flex items-start">
-                <ChevronRight className="text-purple-400 mt-1" size={16} />
+                <ChevronRight className="text-gold-light mt-1" size={16} />
                 <p className="text-gray-300 ml-2">
                   <span className="text-white font-medium">Co-creation</span> of
                   a long-term ecosystem of conscious hospitality
@@ -313,12 +313,12 @@ const InvestorSection: React.FC = () => {
           <div className="flex justify-center">
             <div className="relative">
               <div className="absolute left-4 top-4 bottom-4 w-px bg-gray-700">
-                <div className="progress-bar w-0 h-full bg-gradient-to-b from-purple-500 to-emerald-500"></div>
+                <div className="progress-bar w-0 h-full bg-gradient-to-b from-gold to-emerald-500"></div>
               </div>
 
               <div className="space-y-8">
                 <div className="timeline-item flex">
-                  <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
+                  <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
                     <Building2 className="text-white" size={16} />
                   </div>
                   <div className="ml-6">
@@ -333,7 +333,7 @@ const InvestorSection: React.FC = () => {
                 </div>
 
                 <div className="timeline-item flex">
-                  <div className="w-8 h-8 rounded-full bg-purple-600/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
+                  <div className="w-8 h-8 rounded-full bg-gold/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
                     <FileCheck className="text-white" size={16} />
                   </div>
                   <div className="ml-6">
@@ -348,7 +348,7 @@ const InvestorSection: React.FC = () => {
                 </div>
 
                 <div className="timeline-item flex">
-                  <div className="w-8 h-8 rounded-full bg-purple-600/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
+                  <div className="w-8 h-8 rounded-full bg-gold/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
                     <Landmark className="text-white" size={16} />
                   </div>
                   <div className="ml-6">
@@ -362,7 +362,7 @@ const InvestorSection: React.FC = () => {
                 </div>
 
                 <div className="timeline-item flex">
-                  <div className="w-8 h-8 rounded-full bg-purple-600/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
+                  <div className="w-8 h-8 rounded-full bg-gold/80 flex items-center justify-center flex-shrink-0 z-10 border border-slate-900">
                     <Users className="text-white" size={16} />
                   </div>
                   <div className="ml-6">
@@ -383,10 +383,10 @@ const InvestorSection: React.FC = () => {
         <div
           ref={addToRefs}
           data-animation="fade"
-          className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gradient-to-br from-purple-900/30 via-slate-800/60 to-emerald-900/30"
+          className="max-w-3xl mx-auto rounded-lg overflow-hidden bg-gradient-to-br from-gold/10 via-slate-800/60 to-emerald-900/30"
         >
           <div className="p-8 text-center">
-            <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-purple-300 text-sm mb-3">
+            <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-gold-light text-sm mb-3">
               LIMITED OPPORTUNITY
             </span>
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">

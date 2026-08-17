@@ -24,7 +24,7 @@ export function Footer() {
       className="relative py-12 md:py-16 border-t border-gold/20 bg-forest-deep text-white"
       style={{
         backgroundImage:
-          "linear-gradient(rgba(26, 47, 26, 0.95), rgba(26, 47, 26, 0.95)), url('/tropical-leaves.png')",
+          "linear-gradient(rgba(10, 17, 12, 0.97), rgba(10, 17, 12, 0.97)), url('/tropical-leaves.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -36,14 +36,14 @@ export function Footer() {
             <h3 className="text-xl font-serif font-semibold text-gold-light mb-4">
               TIPESHWAR
             </h3>
-            <p className="text-cream/70 mb-4 leading-relaxed">
+            <p className="text-linen/70 mb-4 leading-relaxed">
               A luxury forest hotel where wilderness meets refined comfort.
               Experience nature like never before in our exclusive retreat.
             </p>
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-cream/80 hover:text-gold transition-colors duration-300"
+                className="text-linen/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Facebook</span>
                 <svg
@@ -61,7 +61,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="text-cream/80 hover:text-gold transition-colors duration-300"
+                className="text-linen/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Instagram</span>
                 <svg
@@ -79,7 +79,7 @@ export function Footer() {
               </a>
               <a
                 href="#"
-                className="text-cream/80 hover:text-gold transition-colors duration-300"
+                className="text-linen/80 hover:text-gold transition-colors duration-300"
               >
                 <span className="sr-only">Twitter</span>
                 <svg
@@ -103,7 +103,7 @@ export function Footer() {
                 <li key={item.id}>
                   <button
                     onClick={() => triggerSectionTransition(item.id)}
-                    className="text-cream/80 hover:text-gold transition-colors duration-300"
+                    className="text-linen/80 hover:text-gold transition-colors duration-300"
                   >
                     {item.label}
                   </button>
@@ -121,7 +121,7 @@ export function Footer() {
                 <li key={item}>
                   <a
                     href="#"
-                    className="text-cream/80 hover:text-gold transition-colors duration-300"
+                    className="text-linen/80 hover:text-gold transition-colors duration-300"
                   >
                     {item}
                   </a>
@@ -134,14 +134,14 @@ export function Footer() {
             <h4 className="text-lg font-serif font-semibold text-gold-light mb-4">
               Newsletter
             </h4>
-            <p className="text-cream/80 mb-4">
+            <p className="text-linen/80 mb-4">
               Subscribe to receive updates on special offers and events.
             </p>
             <form className="space-y-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full bg-cream/10 border border-gold/30 rounded-lg px-4 py-2 text-cream placeholder:text-cream/40 focus:outline-none focus:border-gold transition-colors duration-300"
+                className="w-full bg-cream/10 border border-gold/30 rounded-lg px-4 py-2 text-linen placeholder:text-linen/40 focus:outline-none focus:border-gold transition-colors duration-300"
               />
               <button
                 type="submit"
@@ -154,7 +154,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gold/20 pt-8 text-center">
-          <p className="text-cream/50">
+          <p className="text-linen/50">
             &copy; {new Date().getFullYear()} Tipeshwar Forest Retreat. All
             rights reserved.
           </p>

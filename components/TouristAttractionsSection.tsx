@@ -295,7 +295,7 @@ function TouristAttractionsSection(): JSX.Element {
             attractionRefs.current.set(attraction.id, el);
           }
         }}
-        className="absolute p-4 bg-white/85 backdrop-blur-sm rounded-md shadow-md border border-emerald-200/50 opacity-0 scale-90 pointer-events-none transform-gpu cursor-pointer group" // Simpler styling
+        className="absolute p-4 bg-forest-deep/90 backdrop-blur-sm rounded-md shadow-md border border-gold/20 opacity-0 scale-90 pointer-events-none transform-gpu cursor-pointer group" // Simpler styling
         style={{
           top: attraction.position.top,
           left: attraction.position.left,
@@ -305,10 +305,10 @@ function TouristAttractionsSection(): JSX.Element {
       >
         <div className="flex items-center space-x-2 text-center">
           <IconComponent
-            className="w-4 h-4 text-emerald-700 flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
+            className="w-4 h-4 text-gold-light flex-shrink-0 transition-transform duration-200 group-hover:scale-110"
             strokeWidth={1.5}
           />
-          <span className="text-[20px] font-medium text-green-900 leading-tight">
+          <span className="text-[20px] font-medium text-linen leading-tight">
             {attraction.name}
           </span>
           {/* Tooltip */}
@@ -329,12 +329,12 @@ function TouristAttractionsSection(): JSX.Element {
   return (
     <section
       ref={sectionRef}
-      className="bg-gradient-to-b from-emerald-50 via-green-100 to-lime-100 py-16 md:py-24 overflow-hidden"
+      className="bg-gradient-to-b from-[#0E1611] via-[#121C15] to-[#18251C] py-16 md:py-24 overflow-hidden"
     >
       <div className="container mx-auto px-4">
         <h2
           ref={titleRef}
-          className="text-3xl md:text-4xl font-bold text-center text-emerald-800 mb-8 md:mb-10 opacity-0"
+          className="text-3xl md:text-4xl font-bold text-center text-gold-light mb-8 md:mb-10 opacity-0"
         >
           Points of Interest
         </h2>
@@ -346,7 +346,7 @@ function TouristAttractionsSection(): JSX.Element {
           {/* Central Image - Positioned Absolutely within the Attraction Area */}
           <div
             ref={centerImageRef}
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 lg:w-[500px] lg:h-[500px] rounded-full shadow-xl border-4 border-white/70 z-20 overflow-hidden" // z-20 to be above lines
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 lg:w-[500px] lg:h-[500px] rounded-full shadow-xl border-4 border-gold/30 z-20 overflow-hidden" // z-20 to be above lines
           >
             <Image
               src="/images/Jungle-Resort.jpg" // *** REPLACE IMAGE ***
@@ -382,7 +382,7 @@ function TouristAttractionsSection(): JSX.Element {
                 y1={lineStartPoint.y} // Dynamic start Y %
                 x2={attr.position.left} // End X at attraction's % left
                 y2={attr.position.top} // End Y at attraction's % top
-                stroke="rgba(16, 185, 129, 0.7)"
+                stroke="rgba(212, 180, 131, 0.6)"
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
                 strokeOpacity={0} // Start invisible
@@ -396,7 +396,7 @@ function TouristAttractionsSection(): JSX.Element {
           <button
             ref={toggleButtonRef}
             onClick={handleToggleClick}
-            className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white rounded-full shadow-md hover:bg-emerald-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 font-semibold space-x-2 opacity-0"
+            className="inline-flex items-center px-6 py-3 bg-gold text-white rounded-full shadow-md hover:bg-gold-hover transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gold-light focus:ring-offset-2 font-semibold space-x-2 opacity-0"
           >
             {showAttractions ? (
               <>
@@ -411,7 +411,7 @@ function TouristAttractionsSection(): JSX.Element {
             )}
           </button>
         </div>
-        <p className="text-xs text-green-700/80 mt-10 text-center">
+        <p className="text-xs text-bark-muted mt-10 text-center">
           *Click "Show Points" to see nearby locations relative to the edges of
           the view.
         </p>

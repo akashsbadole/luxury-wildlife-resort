@@ -73,7 +73,7 @@ export function Accommodations() {
           {accommodations.map((item, index) => (
             <div
               key={index}
-              className="accommodation-card card-luxury bg-white rounded-2xl overflow-hidden shadow-lg border border-border-warm/30 flex flex-col"
+              className="accommodation-card card-luxury bg-cream-warm rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col"
             >
               <EdgeHoverEffect className="relative h-64 overflow-hidden img-hover-zoom">
                 <Image

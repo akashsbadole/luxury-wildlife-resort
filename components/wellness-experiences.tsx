@@ -124,10 +124,10 @@ export function WellnessExperiences() {
           <p className="text-gold-light uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Wellness & Experiences
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-cream mb-6 animate-in">
+          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-linen mb-6 animate-in">
             Stillness, Then <span className="text-gold-light">Wonder</span>
           </h2>
-          <p className="text-cream/80 animate-in leading-relaxed">
+          <p className="text-linen/80 animate-in leading-relaxed">
             Begin with restoration, wander into the wild. Two rhythms of a single
             forest — one to soften the body, one to awaken the spirit.
           </p>
@@ -140,7 +140,7 @@ export function WellnessExperiences() {
           {wellness.map((item, index) => (
             <div
               key={index}
-              className="wellness-card card-luxury bg-white/95 rounded-2xl p-8 text-center border border-gold/20 hover:border-gold/50 transition-all duration-300"
+              className="wellness-card card-luxury bg-cream-warm rounded-2xl p-8 text-center border border-gold/20 hover:border-gold/50 transition-all duration-300"
             >
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gold-tint rounded-full">
                 {item.icon}
@@ -160,7 +160,7 @@ export function WellnessExperiences() {
           {experiences.map((item, index) => (
             <div
               key={index}
-              className="experience-card card-luxury bg-white/95 rounded-2xl p-7 text-center border border-gold/20 hover:border-gold/50 transition-all duration-300"
+              className="experience-card card-luxury bg-cream-warm rounded-2xl p-7 text-center border border-gold/20 hover:border-gold/50 transition-all duration-300"
             >
               <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center bg-gold-tint rounded-full">
                 {item.icon}

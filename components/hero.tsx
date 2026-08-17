@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { triggerSectionTransition } from "./section-transition";
+import { Birds } from "./birds";
 
 export function Hero() {
   const scopeRef = useRef<HTMLElement>(null);
@@ -30,10 +31,10 @@ export function Hero() {
     <section
       id="home"
       ref={scopeRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-[600px] flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 z-0 text-white">
+      <div className="ken-burns absolute inset-0 z-0 text-white">
         <Image
           src="/images/indian forest.jpg"
           alt="Lush Indian forest"
@@ -42,39 +43,45 @@ export function Hero() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/50" />
       </div>
+
+      <Birds />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">
-          <p className="hero-sub text-gold-light tracking-[0.35em] uppercase text-sm md:text-base mb-6 text-white">
+          <p className="hero-sub flex items-center justify-center gap-4 text-gold-light tracking-[0.4em] uppercase text-[10px] md:text-xs mb-4">
+            <span className="h-px w-10 md:w-16 bg-gold-light/60" />
             Luxury Forest Hotel & Retreat
+            <span className="h-px w-10 md:w-16 bg-gold-light/60" />
           </p>
-          <h1 className="mb-8">
+          <h1 className="mb-3">
             {["Tipeshwar", "Forest", "Retreat"].map((word, index) => (
               <span
                 key={index}
-                className="hero-word block text-6xl md:text-8xl lg:text-[7rem] font-serif font-light text-cream leading-[1.05] text-white"
-                style={{ textShadow: "0 4px 30px rgba(26, 47, 26, 0.5)" }}
+                className={`hero-word block text-4xl md:text-7xl font-serif leading-[1.05] ${
+                  index === 1 ? "gradient-text font-semibold" : "text-linen font-light"
+                }`}
+                style={{ textShadow: "0 4px 30px rgba(0, 0, 0, 0.6)" }}
               >
                 {word}
               </span>
             ))}
           </h1>
-          <p className="hero-sub text-xl md:text-2xl text-cream/80 mb-12 font-light tracking-wide text-white">
+          <p className="hero-sub text-sm md:text-lg text-linen/85 mb-5 italic font-light tracking-wide">
             Where the wilderness whispers you home
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <button
-              className="hero-cta btn-gold px-10 py-4 rounded-full text-lg font-medium tracking-wider text-white"
+              className="hero-cta btn-gold px-8 py-3 rounded-full text-sm font-medium tracking-wider text-white"
               onClick={() => triggerSectionTransition("suites")}
             >
               Explore Suites
             </button>
             <button
-              className="hero-cta px-10 py-4 rounded-full text-lg font-medium tracking-wider border border-cream/30 text-cream hover:bg-cream/10 transition-all duration-300 text-white"
+              className="hero-cta px-8 py-3 rounded-full text-sm font-medium tracking-wider border border-gold-light/50 text-linen hover:bg-gold/20 transition-all duration-300"
               onClick={() => triggerSectionTransition("booking")}
             >
               Book Your Stay
@@ -86,19 +93,19 @@ export function Hero() {
       {/* Scroll Indicator */}
       <button
         onClick={() => triggerSectionTransition("suites")}
-        className="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 text-cream/60 hover:text-gold-light transition-colors duration-300"
+        className="scroll-indicator absolute bottom-3 left-1/2 -translate-x-1/2 text-linen/60 hover:text-gold-light transition-colors duration-300"
         aria-label="Scroll to suites"
       >
-        <span className="flex flex-col items-center space-y-2">
-          <span className="text-xs tracking-widest uppercase text-white">
+        <span className="flex flex-col items-center space-y-1">
+          <span className="text-[10px] tracking-widest uppercase text-white">
             Scroll
           </span>
-          <ChevronDown size={20} className="animate-bounce" />
+          <ChevronDown size={16} className="animate-bounce" />
         </span>
       </button>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-cream to-transparent z-[3]" />
+      <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-cream to-transparent z-[3]" />
     </section>
   );
 }

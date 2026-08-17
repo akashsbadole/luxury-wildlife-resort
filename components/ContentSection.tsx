@@ -102,7 +102,7 @@ export function ContentSection({
           <h2
             ref={titleRef}
             className={`text-4xl md:text-5xl font-serif font-semibold perspective-1000 ${
-              reverse ? "text-forest" : "text-cream"
+              reverse ? "text-forest" : "text-linen"
             }`}
           >
             {title}
@@ -110,14 +110,14 @@ export function ContentSection({
           <div className="content-animate">
             <h3
               className={`${
-                reverse ? "text-bark" : "text-cream"
+                reverse ? "text-bark" : "text-linen"
               } text-xl md:text-2xl font-serif font-medium mb-4`}
             >
               {subtitle}
             </h3>
             <p
               className={`${
-                reverse ? "text-bark-muted" : "text-cream/80"
+                reverse ? "text-bark-muted" : "text-linen/80"
               } text-lg leading-relaxed`}
             >
               {description}

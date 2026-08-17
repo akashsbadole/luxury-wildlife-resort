@@ -43,7 +43,7 @@ export function Navigation() {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between ">
         <button
           className={`text-2xl font-serif font-semibold flex items-center tracking-wide transition-colors duration-300 ${
-            scrolled ? "text-forest" : "text-cream"
+            scrolled ? "text-forest" : "text-linen"
           }`}
           onClick={() => goToSection("home")}
         >
@@ -80,7 +80,7 @@ export function Navigation() {
 
         <button
           className={`md:hidden transition-colors duration-300 ${
-            scrolled ? "text-bark" : "text-cream"
+            scrolled ? "text-bark" : "text-linen"
           }`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
