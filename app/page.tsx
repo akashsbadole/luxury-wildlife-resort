@@ -22,6 +22,10 @@ import DistanceSection from "@/components/address";
 import TouristAttractionsSection from "@/components/TouristAttractionsSection";
 import WhyChooseUs from "@/components/WhyChoose";
 import InvestorSection from "@/components/InvestorSection";
+import { Cursor } from "@/components/cursor";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { SectionNumbers } from "@/components/section-numbers";
+import { FloatingActions } from "@/components/floating-actions";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -53,11 +57,68 @@ const contentSections = [
   },
 ];
 
+function splitHeadlines() {
+  document.querySelectorAll("main section h2").forEach((el) => {
+    const h2 = el as HTMLElement;
+    if (h2.closest(".cs-content")) return;
+    if (h2.querySelector(".st-word")) return;
+    h2.classList.remove("animate-in");
+
+    const nodes = Array.from(h2.childNodes);
+    h2.innerHTML = "";
+    const appendWord = (content: Node | string) => {
+      const wrap = document.createElement("span");
+      wrap.className = "st-word";
+      const inner = document.createElement("span");
+      inner.className = "st-inner";
+      inner.appendChild(
+        typeof content === "string"
+          ? document.createTextNode(content)
+          : content
+      );
+      wrap.appendChild(inner);
+      h2.appendChild(wrap);
+      h2.appendChild(document.createTextNode(" "));
+    };
+    nodes.forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        (node.textContent ?? "")
+          .split(/\s+/)
+          .filter(Boolean)
+          .forEach((word) => appendWord(word));
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        appendWord(node as Node);
+      }
+    });
+
+    gsap.fromTo(
+      h2.querySelectorAll(".st-inner"),
+      { yPercent: 115, rotate: 4 },
+      {
+        yPercent: 0,
+        rotate: 0,
+        stagger: 0.05,
+        duration: 1,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: h2,
+          start: "top 88%",
+          toggleActions: "play none none reverse",
+        },
+      }
+    );
+  });
+}
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const mainRef = useRef(null);
 
-  useGSAP(() => {
+  useGSAP(
+    () => {
+      if (isLoading) return;
+      splitHeadlines();
+
     const sections = document.querySelectorAll("section");
 
     sections.forEach((section) => {
@@ -91,7 +152,52 @@ export default function Home() {
         },
       });
     });
-  }, []);
+
+    // Cinematic clip-path reveals on framed photos
+    document
+      .querySelectorAll("main section:not(#home) .cinematic")
+      .forEach((el) => {
+        if (!el.querySelector("img")) return;
+        gsap.fromTo(
+          el,
+          { clipPath: "inset(0 0 100% 0)" },
+          {
+            clipPath: "inset(0 0 0% 0)",
+            duration: 1.3,
+            ease: "power4.inOut",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+    // Hero content drifts away on scroll
+    gsap.to(
+      [
+        "#home .hero-word",
+        "#home .hero-sub",
+        "#home .hero-cta",
+        "#home .scroll-indicator",
+      ],
+      {
+        yPercent: -35,
+        opacity: 0,
+        stagger: 0.06,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#home",
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.5,
+        },
+      }
+    );
+    },
+    { dependencies: [isLoading], revertOnUpdate: true }
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -104,11 +210,16 @@ export default function Home() {
   return (
     <main ref={mainRef} className="relative bg-cream">
       <SectionTransition />
+      <Cursor />
+      <ScrollProgress />
+      <div aria-hidden="true" className="grain" />
       {isLoading ? (
         <Loader />
       ) : (
         <>
+          <SectionNumbers />
           <Navigation />
+          <FloatingActions />
           <Hero />
           <Marquee />
           <About />

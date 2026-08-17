@@ -1,6 +1,7 @@
 "use client";
 
 import { triggerSectionTransition } from "./section-transition";
+import Link from "next/link";
 
 const QUICK_LINKS = [
   { label: "Home", id: "home" },
@@ -12,10 +13,10 @@ const QUICK_LINKS = [
 ];
 
 const POLICIES = [
-  "Privacy Policy",
-  "Terms & Conditions",
-  "Cancellation Policy",
-  "FAQ",
+  { label: "Privacy Policy", href: "/policies/privacy-policy" },
+  { label: "Terms & Conditions", href: "/policies/terms-and-conditions" },
+  { label: "Cancellation Policy", href: "/policies/cancellation-policy" },
+  { label: "FAQ", href: "/policies/faq" },
 ];
 
 export function Footer() {
@@ -123,13 +124,13 @@ export function Footer() {
             </h4>
             <ul className="space-y-2">
               {POLICIES.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
                     className="text-linen/80 hover:text-gold transition-colors duration-300"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
