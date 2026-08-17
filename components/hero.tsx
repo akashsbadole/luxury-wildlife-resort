@@ -34,7 +34,7 @@ export function Hero() {
       className="relative h-[600px] flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
-      <div className="ken-burns absolute inset-0 z-0 text-white">
+      <div className="ken-burns cinematic absolute inset-0 z-0 text-white">
         <Image
           src="/images/indian forest.jpg"
           alt="Lush Indian forest"

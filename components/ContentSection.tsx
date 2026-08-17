@@ -126,7 +126,7 @@ export function ContentSection({
         </div>
 
         <div
-          className={`image-animate relative h-[500px] ${
+          className={`image-animate cinematic relative h-[500px] ${
             reverse ? "md:order-1" : ""
           }`}
         >

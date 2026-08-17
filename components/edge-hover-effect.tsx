@@ -41,7 +41,7 @@ export function EdgeHoverEffect({ children, className = "" }: EdgeHoverEffectPro
           left: 0,
           width: "100%",
           height: "2px",
-          background: "linear-gradient(to right, transparent, rgba(245, 158, 11, 0.8), transparent)",
+          background: "linear-gradient(to right, transparent, rgba(212, 180, 131, 0.8), transparent)",
         })
         break
       case "right":
@@ -50,7 +50,7 @@ export function EdgeHoverEffect({ children, className = "" }: EdgeHoverEffectPro
           right: 0,
           width: "2px",
           height: "100%",
-          background: "linear-gradient(to bottom, transparent, rgba(245, 158, 11, 0.8), transparent)",
+          background: "linear-gradient(to bottom, transparent, rgba(212, 180, 131, 0.8), transparent)",
         })
         break
       case "bottom":
@@ -59,7 +59,7 @@ export function EdgeHoverEffect({ children, className = "" }: EdgeHoverEffectPro
           left: 0,
           width: "100%",
           height: "2px",
-          background: "linear-gradient(to right, transparent, rgba(245, 158, 11, 0.8), transparent)",
+          background: "linear-gradient(to right, transparent, rgba(212, 180, 131, 0.8), transparent)",
         })
         break
       case "left":
@@ -68,7 +68,7 @@ export function EdgeHoverEffect({ children, className = "" }: EdgeHoverEffectPro
           left: 0,
           width: "2px",
           height: "100%",
-          background: "linear-gradient(to bottom, transparent, rgba(245, 158, 11, 0.8), transparent)",
+          background: "linear-gradient(to bottom, transparent, rgba(212, 180, 131, 0.8), transparent)",
         })
         break
     }
@@ -142,7 +142,7 @@ export function EdgeHoverEffect({ children, className = "" }: EdgeHoverEffectPro
         ref={edgeRef}
         className="absolute opacity-0 transition-opacity duration-300"
         style={{
-          boxShadow: "0 0 20px rgba(245, 158, 11, 0.5)",
+          boxShadow: "0 0 20px rgba(212, 180, 131, 0.4)",
         }}
       />
     </div>

@@ -16,7 +16,7 @@ export function About() {
               <p className="eyebrow-start text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
                 The Sanctuary
               </p>
-              <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
+              <h2 className="text-4xl md:text-6xl font-serif font-semibold text-forest mb-6 animate-in">
                 About Our <span className="gradient-text">Forest Retreat</span>
               </h2>
 
@@ -52,7 +52,7 @@ export function About() {
               </div>
             </div>
 
-            <EdgeHoverEffect className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden animate-in shadow-xl img-hover-zoom">
+            <EdgeHoverEffect className="cinematic relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden animate-in shadow-xl img-hover-zoom">
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
               <Image
                 src="/images/Image-One.jpg"

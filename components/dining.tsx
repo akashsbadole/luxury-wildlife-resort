@@ -78,7 +78,7 @@ export function Dining() {
           <p className="eyebrow text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Dining
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-forest mb-6 animate-in">
             Flavours of the <span className="gradient-text">Forest</span>
           </h2>
           <p className="text-bark-muted animate-in leading-relaxed">
@@ -93,7 +93,7 @@ export function Dining() {
               key={index}
               className="dining-card card-luxury glass rounded-3xl overflow-hidden shadow-lg flex flex-col"
             >
-              <EdgeHoverEffect className="relative h-64 overflow-hidden">
+              <EdgeHoverEffect className="cinematic relative h-72 overflow-hidden">
                 <Image
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}

@@ -36,8 +36,8 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
         scrolled
-          ? "bg-cream/80 backdrop-blur-md py-3 shadow-sm"
-          : "bg-transparent py-6"
+          ? "bg-forest-deep/90 backdrop-blur-xl py-3 shadow-lg border-b border-gold/15"
+          : "bg-gradient-to-b from-black/50 to-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between ">
@@ -91,7 +91,7 @@ export function Navigation() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 bg-cream/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center transition-transform duration-500 ${
+        className={`fixed inset-0 bg-forest-deep/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center transition-transform duration-500 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

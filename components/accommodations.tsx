@@ -60,7 +60,7 @@ export function Accommodations() {
           <p className="eyebrow text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Suites
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-forest mb-6 animate-in">
             Our <span className="gradient-text">Suites</span>
           </h2>
           <p className="text-bark-muted animate-in leading-relaxed">
@@ -75,7 +75,7 @@ export function Accommodations() {
               key={index}
               className="accommodation-card card-luxury glass rounded-3xl overflow-hidden shadow-lg flex flex-col"
             >
-              <EdgeHoverEffect className="relative h-64 overflow-hidden img-hover-zoom">
+              <EdgeHoverEffect className="cinematic relative h-72 overflow-hidden img-hover-zoom">
                 <Image
                   src={item.image || "/placeholder.svg"}
                   alt={item.title}
@@ -101,7 +101,7 @@ export function Accommodations() {
 
                 <button
                   onClick={() => triggerSectionTransition("booking")}
-                  className="mt-auto btn-gold w-full py-3 rounded-lg font-medium"
+                  className="mt-auto btn-gold w-full py-3 rounded-full font-medium tracking-wider"
                 >
                   Reserve
                 </button>

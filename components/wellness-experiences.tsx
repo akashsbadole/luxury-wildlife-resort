@@ -130,7 +130,7 @@ export function WellnessExperiences() {
           <p className="eyebrow text-gold-light uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Wellness & Experiences
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-linen mb-6 animate-in">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-linen mb-6 animate-in">
             Stillness, Then <span className="gradient-text">Wonder</span>
           </h2>
           <p className="text-linen/80 animate-in leading-relaxed">

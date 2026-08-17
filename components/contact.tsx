@@ -51,7 +51,7 @@ export function Contact() {
           <p className="eyebrow text-gold uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Contact
           </p>
-          <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
+          <h2 className="text-4xl md:text-6xl font-serif font-semibold text-forest mb-6 animate-in">
             Begin the <span className="gradient-text">Conversation</span>
           </h2>
           <p className="text-bark-muted animate-in">
