@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import { Loader } from "@/components/loader";
 import { Navigation } from "@/components/navigation";
 import { Hero } from "@/components/hero";
+import { Marquee } from "@/components/marquee";
 import { About } from "@/components/about";
 import { ContentSection } from "@/components/ContentSection";
 import { Accommodations } from "@/components/accommodations";
@@ -109,6 +110,7 @@ export default function Home() {
         <>
           <Navigation />
           <Hero />
+          <Marquee />
           <About />
           <Accommodations />
           <Dining />

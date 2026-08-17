@@ -52,7 +52,7 @@ export function Contact() {
             Contact
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
-            Begin the <span className="text-bark">Conversation</span>
+            Begin the <span className="gradient-text">Conversation</span>
           </h2>
           <p className="text-bark-muted animate-in">
             Have questions or ready to book your stay? Reach out to our team for
@@ -61,7 +61,7 @@ export function Contact() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div className="contact-info bg-cream-warm rounded-2xl p-8 h-full shadow-lg border border-gold/20">
+          <div className="contact-info glass rounded-3xl p-8 h-full shadow-lg">
             <div className="relative h-48 rounded-xl overflow-hidden mb-8">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.1948768345305!2d78.43851477522684!3d19.9161910814691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd24d0ec3994245%3A0x949922b233325fd8!2sTipeshwar%20Wildlife%20Sanctuary!5e0!3m2!1sen!2sin!4v1745085952900!5m2!1sen!2sin"
@@ -108,7 +108,7 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="contact-form bg-cream-warm rounded-2xl p-8 shadow-lg border border-gold/20">
+          <div className="contact-form glass rounded-3xl p-8 shadow-lg">
             <ContactForm />
           </div>
         </div>

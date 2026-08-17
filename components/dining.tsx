@@ -79,7 +79,7 @@ export function Dining() {
             Dining
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
-            Flavours of the <span className="text-bark">Forest</span>
+            Flavours of the <span className="gradient-text">Forest</span>
           </h2>
           <p className="text-bark-muted animate-in leading-relaxed">
             Every meal at Tipeshwar is an extension of the landscape — rooted in
@@ -91,7 +91,7 @@ export function Dining() {
           {dining.map((item, index) => (
             <div
               key={index}
-              className="dining-card card-luxury bg-cream-warm rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col"
+              className="dining-card card-luxury glass rounded-3xl overflow-hidden shadow-lg flex flex-col"
             >
               <EdgeHoverEffect className="relative h-64 overflow-hidden">
                 <Image

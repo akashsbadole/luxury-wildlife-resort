@@ -96,7 +96,7 @@ export function ContentSection({
       <div
         className={`container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center ${
           reverse ? "bg-cream-deep" : "bg-forest-deep"
-        } rounded-2xl overflow-hidden`}
+        } rounded-3xl overflow-hidden`}
       >
         <div className={`space-y-6 px-5 py-8 ${reverse ? "md:order-2" : ""}`}>
           <h2
@@ -134,7 +134,7 @@ export function ContentSection({
             src={image}
             alt={imageAlt}
             fill
-            className="object-cover rounded-2xl img-hover-zoom"
+            className="object-cover rounded-3xl img-hover-zoom"
           />
         </div>
       </div>

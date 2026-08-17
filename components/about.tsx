@@ -17,7 +17,7 @@ export function About() {
                 The Sanctuary
               </p>
               <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
-                About Our <span className="text-bark">Forest Retreat</span>
+                About Our <span className="gradient-text">Forest Retreat</span>
               </h2>
 
               <h3 className="text-xl text-bark mb-6 animate-in py-4 text-justify font-light leading-relaxed">

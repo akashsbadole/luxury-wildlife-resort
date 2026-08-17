@@ -119,13 +119,19 @@ export function WellnessExperiences() {
         <div className="absolute inset-0 shadow bg-[#0000005c]" />
       </div>
 
+      <div
+        aria-hidden="true"
+        className="glow-orb w-[500px] h-[500px] -top-40 right-0"
+        style={{ background: "radial-gradient(circle, rgba(164,121,63,0.4), transparent 70%)" }}
+      />
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <p className="eyebrow text-gold-light uppercase tracking-[0.25em] text-sm font-medium mb-4 animate-in">
             Wellness & Experiences
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-linen mb-6 animate-in">
-            Stillness, Then <span className="text-gold-light">Wonder</span>
+            Stillness, Then <span className="gradient-text">Wonder</span>
           </h2>
           <p className="text-linen/80 animate-in leading-relaxed">
             Begin with restoration, wander into the wild. Two rhythms of a

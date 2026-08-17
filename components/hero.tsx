@@ -48,6 +48,17 @@ export function Hero() {
 
       <Birds />
 
+      <div
+        aria-hidden="true"
+        className="glow-orb w-[500px] h-[500px] -top-40 -left-40"
+        style={{ background: "radial-gradient(circle, rgba(164,121,63,0.5), transparent 70%)" }}
+      />
+      <div
+        aria-hidden="true"
+        className="glow-orb w-[400px] h-[400px] -bottom-48 -right-32"
+        style={{ background: "radial-gradient(circle, rgba(46,74,58,0.8), transparent 70%)" }}
+      />
+
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <div className="max-w-4xl mx-auto">

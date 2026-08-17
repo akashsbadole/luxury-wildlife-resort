@@ -61,7 +61,7 @@ export function Accommodations() {
             Suites
           </p>
           <h2 className="text-3xl md:text-5xl font-serif font-semibold text-forest mb-6 animate-in">
-            Our <span className="text-bark">Suites</span>
+            Our <span className="gradient-text">Suites</span>
           </h2>
           <p className="text-bark-muted animate-in leading-relaxed">
             Three distinct ways to dwell among the trees — each crafted to dissolve
@@ -73,7 +73,7 @@ export function Accommodations() {
           {accommodations.map((item, index) => (
             <div
               key={index}
-              className="accommodation-card card-luxury bg-cream-warm rounded-2xl overflow-hidden shadow-lg border border-gold/20 flex flex-col"
+              className="accommodation-card card-luxury glass rounded-3xl overflow-hidden shadow-lg flex flex-col"
             >
               <EdgeHoverEffect className="relative h-64 overflow-hidden img-hover-zoom">
                 <Image

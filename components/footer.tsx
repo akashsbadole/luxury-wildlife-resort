@@ -31,6 +31,11 @@ export function Footer() {
       }}
     >
       <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div
+          aria-hidden="true"
+          className="glow-orb w-[400px] h-[400px] -top-32 left-1/4"
+          style={{ background: "radial-gradient(circle, rgba(164,121,63,0.35), transparent 70%)" }}
+        />
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="text-xl font-serif font-semibold text-gold-light mb-4">

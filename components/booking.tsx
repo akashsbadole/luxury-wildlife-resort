@@ -46,7 +46,7 @@ export function Booking() {
           </p>
         </div>
 
-        <div className="booking-reveal max-w-5xl mx-auto bg-cream-deep/60 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-border-warm/40 shadow-sm">
+        <div className="booking-reveal max-w-5xl mx-auto glass rounded-3xl p-6 md:p-10 shadow-lg">
           <BookingForm />
         </div>
       </div>
